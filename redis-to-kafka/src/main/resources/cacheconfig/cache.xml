@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<redisInstance id="default" isSentinel="false" isHash="false">
+		<JedisPoolConfig>
+			<maxActive>100</maxActive>
+			<maxIdle>100</maxIdle>
+			<maxWait>10000</maxWait>
+			<testOnBorrow>true</testOnBorrow>
+			<minIdle>3</minIdle>
+			<testOnReturn>false</testOnReturn>
+		</JedisPoolConfig>
+		<JedisShardInfo>
+			<serverIp>120.55.242.68</serverIp>
+			<serverPort>52763</serverPort>
+		</JedisShardInfo>
+	</redisInstance>
+	 
+	 
+	<redisInstance id="autotaskInfo" isSentinel="false" isHash="false">
+		<JedisPoolConfig>
+			<maxActive>100</maxActive>
+			<maxIdle>100</maxIdle>
+			<maxWait>10000</maxWait>
+			<testOnBorrow>true</testOnBorrow>
+			<minIdle>3</minIdle>
+			<testOnReturn>true</testOnReturn>
+		</JedisPoolConfig>
+		<JedisShardInfo>
+			<serverIp>120.55.242.68</serverIp>
+			<serverPort>52764</serverPort>
+		</JedisShardInfo>
+	</redisInstance>
+
+
+<!--	<redisInstance id="local1" isSentinel="false" isHash="true">-->
+<!--		<JedisPoolConfig>-->
+<!--			<maxActive>50</maxActive>-->
+<!--			<maxIdle>10</maxIdle>-->
+<!--			<maxWait>1000</maxWait>-->
+<!--			<testOnBorrow>true</testOnBorrow>-->
+<!--			<minIdle>3</minIdle>-->
+<!--			<testOnReturn>true</testOnReturn>-->
+<!--		</JedisPoolConfig>-->
+<!--	    <JedisShardInfo>-->
+<!--			<serverIp>172.22.142.8</serverIp>-->
+<!--			<serverPort>6382</serverPort>-->
+<!--		</JedisShardInfo>-->
+<!--	</redisInstance>-->
+<!--	-->
+<!--   <redisInstance id="server172" isSentinel="false" isHash="true">-->
+<!--		<JedisPoolConfig>-->
+<!--			<maxActive>50</maxActive>-->
+<!--			<maxIdle>10</maxIdle>-->
+<!--			<maxWait>1000</maxWait>-->
+<!--			<testOnBorrow>true</testOnBorrow>-->
+<!--			<minIdle>3</minIdle>-->
+<!--			<testOnReturn>true</testOnReturn>-->
+<!--		</JedisPoolConfig>-->
+<!--	    <JedisShardInfo>-->
+<!--			<serverIp>172.22.142.7</serverIp>-->
+<!--			<serverPort>6380</serverPort>-->
+<!--		</JedisShardInfo>-->
+<!--	</redisInstance>-->
+<!--	-->
+<!--	 <redisInstance id="server17282" isSentinel="false" isHash="true">-->
+<!--		<JedisPoolConfig>-->
+<!--			<maxActive>50</maxActive>-->
+<!--			<maxIdle>10</maxIdle>-->
+<!--			<maxWait>1000</maxWait>-->
+<!--			<testOnBorrow>true</testOnBorrow>-->
+<!--			<minIdle>3</minIdle>-->
+<!--			<testOnReturn>true</testOnReturn>-->
+<!--		</JedisPoolConfig>-->
+<!--	    <JedisShardInfo>-->
+<!--			<serverIp>172.22.142.7</serverIp>-->
+<!--			<serverPort>6382</serverPort>-->
+<!--		</JedisShardInfo>-->
+<!--	</redisInstance>-->
+	
+ 
+</config>

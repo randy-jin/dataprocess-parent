@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+
+    <apollo:config/>
+    <bean id="syncClient" class="com.alicloud.openservices.tablestore.SyncClient">
+        <constructor-arg name="endpoint" value="${OTS.ENDPOINT:apollo}"/>
+        <constructor-arg name="accessKeyId" value="${OTS.ACCESSID:apollo}"/>
+        <constructor-arg name="accessKeySecret" value="${OTS.ACCESSKEY:apollo}"/>
+        <constructor-arg name="instanceName" value="${OTS.INSTANCENAME:apollo}"/>
+    </bean>
+
+    <bean id="asyncClient" class="com.alicloud.openservices.tablestore.AsyncClient">
+        <constructor-arg name="endpoint" value="${OTS.ENDPOINT:apollo}"/>
+        <constructor-arg name="accessKeyId" value="${OTS.ACCESSID:apollo}"/>
+        <constructor-arg name="accessKeySecret" value="${OTS.ACCESSKEY:apollo}"/>
+        <constructor-arg name="instanceName" value="${OTS.INSTANCENAME:apollo}"/>
+    </bean>
+
+</beans>

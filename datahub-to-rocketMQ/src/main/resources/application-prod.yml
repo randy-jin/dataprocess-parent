@@ -1,0 +1,98 @@
+server:
+  port: 8082
+
+mybatis:
+  mapperLocations: classpath:mapper/**/*.xml
+  type-aliases-package: com.tl.dataprocess.rocketMQ.entity
+spring:
+  application:
+    name: datahub-to-rocketMQ
+  redis:
+    cluster:
+      nodes: 21.32.65.63:20018,21.32.65.64:20019,21.32.65.65:20020,21.32.65.66:20021,21.32.65.67:20022,21.32.65.68:20023
+      max-redirects: 6
+    #    host: 121.36.91.254
+    #    port: 16379
+    password: 1qaz2wsx4rfv
+    # 连接超时时间
+    timeout: 60000
+    jedis:
+      pool:
+        # 连接池的最大数据库连接数
+        max-active: 2048
+        # 连接池最大阻塞等待时间
+        max-wait: 5000
+        # 连接池中的最大空闲连接
+        max-idle: 200
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    database: 0
+  # 存白名单的库
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    username: bjeasdb
+    password: X3ruV0mB
+    name: druid
+    druid:
+      # 最小连接池数量
+      minIdle: 10
+      # 最大连接池数量
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+    url: jdbc:mysql://drdshbgar2q145xypublic.drds.aliyuncs.com:3306/bjeasdb?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+
+datahub:
+  default:
+    endpoint: http://datahub.cn-bj-bjyc-d01.dh.res-eas.bj.sgcc.com.cn
+    access:
+      id: MwhlRixmEJWioVd6
+      key: VU7pwpyadzpzebfNwirkDVQXgnTPzm
+    project: bjcjeas
+    topic:
+      blackoutEvent: e_event_erc14_source
+      volCurve: e_mp_vol_curve_ud_source
+      curCurve: e_mp_cur_curve_ud_source
+      powerCurve: e_mp_power_curve_ud_source
+      factorCurve: e_mp_factor_curve_ud_source
+      readCurve: e_mp_read_curve_ud_source
+      userPowerCut: e_meter_event_no_power_source
+    subId:
+      #停电事件
+      blackoutEvent:
+      #电压曲线
+      volCurve:
+      #电流曲线
+      curCurve:
+      #功率曲线
+      powerCurve:
+      #功率因数曲线
+      factorCurve:
+      #电能示值曲线
+      readCurve:
+      #用户停电事件
+      userPowerCut:
+
+rocketmq:
+  test:
+    producerGroup: rmq-group
+    namesrvAddr: localhost:9876
+    # 生产者实例名称
+    instanceName: producer
+    topic: cms_tg_outage
+    # 标签
+    tag: TagA
+  aliyun:
+    accessKey: 0TjGUtLQ44RnM6cs
+    secretKey: CKmsuZqFiiGwME0ZMYo8lRn1blIIYi
+    nameSrvAddr: http://MQ_INST_1627594110734875_BdCMqqMM.bj-1.mq.namesrv.bj-1.res.sgmc.sgcc.com.cn:9876
+    topic: cms_tg_outage
+    groupId: GID-analysis-center
+    instanceId: MQ_INST_1627594110734875_BdCMqqMM
+    tag: TagA
+    orderTopic: test
+    orderGroupId: test
+    orderTag: test
+
+filterFlag: true

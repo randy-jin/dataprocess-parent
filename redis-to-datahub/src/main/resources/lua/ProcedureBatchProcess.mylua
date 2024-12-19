@@ -1,0 +1,18 @@
+local task
+local cp
+local subtask
+local updtime
+local key_cp2subtask=KEYS[2]
+local p_subtask2cp=KEYS[3]
+for i=1,KEYS[1] do
+  cp=ARGV[i]
+  --get subtask by collection point from cp2subtask dataset
+  subtask= redis.call("hget",key_cp2subtask,cp)
+  if subtask~=false then
+    --remove corresponding item from cp2subtask dataset.
+    redis.call("hdel",key_cp2subtask,cp)
+    redis.call("srem",p_subtask2cp..subtask,cp)
+  end
+end
+--the return value is just for test
+--return subtask.."$"..cp

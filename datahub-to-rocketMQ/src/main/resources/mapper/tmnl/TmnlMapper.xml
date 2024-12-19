@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tl.dataprocess.rocketMQ.mapper.tmnl.TmnlMapper">
+
+
+<!--    <select id="selectOrgNo" resultType="string">-->
+<!--        SELECT ORG_NO FROM `br_rca_ctrlinfo` GROUP BY ORG_NO-->
+<!--    </select> -->
+
+    <select id="selectOrgNo" resultType="string">
+        SELECT filterKey FROM r_data_filter WHERE filterType = 3
+    </select>
+</mapper>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+
+    <apollo:config/>
+    <bean id="multiDataSource" class="com.ls.pf.base.common.persistence.datasource.MultiDataSource">
+        <constructor-arg>
+            <map>
+                <entry key="default" value-ref="dataSource"/>
+                <entry key="athena" value-ref="dataSource"/>
+                <!--<entry key="procedure" value-ref="procedure"/>-->
+            </map>
+        </constructor-arg>
+    </bean>
+    <!--*********************** 主站 **************************-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="${dburl:apollo}" />
+        <property name="username" value="${dbuser:apollo}" />
+        <property name="password" value="${dbpwd:apollo}" />
+        <property name="initialSize" value="3" />
+        <property name="maxActive" value="100" />
+        <property name="maxIdle" value="30" />
+        <property name="minIdle" value="2" />
+        <property name="maxWait" value="5000" />
+        <property name="validationQuery" value="select 1 from dual" />
+        <property name="testOnBorrow" value="true" />
+        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandonedTimeout" value="300" />
+        <property name="logAbandoned" value="true" />
+    </bean>
+
+</beans>

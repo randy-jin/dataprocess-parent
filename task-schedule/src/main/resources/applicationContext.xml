@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.tl.easb">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- import redis configuration -->
+    <!-- redisConfig.xml配置文件为依赖配置，不管是采用cluster、Single还是sentinel模式都需要引用该配置 -->
+    <import resource="classpath:redisConfig.xml" />
+    <!-- Redis单实例 -->
+    <!-- <import resource="classpath:redisSingleConfig.xml" /> -->
+    <!-- Redis哨兵模式 -->
+    <import resource="classpath:redisSentinelConfig.xml" />
+    <!-- Redis分布式 -->
+    <import resource="classpath:redisClusterConfig.xml" />
+    <!-- 注意：以上三种模式一般情况下一个应用只会采用其中一种，如果需要两种或以上同时使用，则请注意业务层面的bean ID要保证唯一性，否则会导致启动失败 -->
+
+    <bean class="com.tl.easb.utils.multi.service.MultipleData" init-method="startListener">
+        <!--统一配置-->
+        <property name="jedisManager">
+            <bean class="com.tl.easb.utils.multi.pojo.JedisManager">
+                <!--jedis配置-->
+                <property name="jedisPoolConfig" ref="jedisPoolConfig"/>
+                <!--管道执行数-->
+                <property name="pipelineCount" value="10000"/>
+                <!-- 重连次数 -->
+                <property name="retry" value="5"/>
+            </bean>
+        </property>
+        <!--监控url配置-->
+        <property name="conList">
+            <list>
+                <value>120.55.242.68:20024:1qaz2wsx4rfv</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="startLoad" class="com.tl.dataprocess.kafka.TimeToReadDRDS" init-method="readValue">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+<!--     async-->
+    <bean id="e_mp_power_curve_ud"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_mp_power_curve_ud_source"/>
+        <property name="datahubSubId" value="1631528274450NbbS3"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="MPED_ID"/>
+        <property name="filterIsId" value="ID"/>
+        <property name="limit" value="1000"/>
+        <property name="kafkaTopicName" value="e_mp_power_curve_ud"/>
+    </bean>
+    <bean id="e_mp_cur_curve_ud"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_mp_cur_curve_ud_source"/>
+        <property name="datahubSubId" value="1631687580447eKlCd"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="MPED_ID"/>
+        <property name="filterIsId" value="ID"/>
+        <property name="kafkaTopicName" value="e_mp_cur_curve_ud"/>
+    </bean>
+    <bean id="e_mp_factor_curve_ud"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_mp_factor_curve_ud_source"/>
+        <property name="datahubSubId" value="163168754297180Jpl"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="MPED_ID"/>
+        <property name="filterIsId" value="ID"/>
+        <property name="kafkaTopicName" value="e_mp_factor_curve_ud"/>
+    </bean>
+    <bean id="e_mp_read_curve_ud"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_mp_read_curve_ud_source"/>
+        <property name="datahubSubId" value="1631687502517My4fT"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="MPED_ID"/>
+        <property name="filterIsId" value="ID"/>
+        <property name="kafkaTopicName" value="e_mp_read_curve_ud"/>
+    </bean>
+    <bean id="e_mp_vol_curve_ud"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_mp_vol_curve_ud_source"/>
+        <property name="datahubSubId" value="1631687453378aF5X6"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="MPED_ID"/>
+        <property name="filterIsId" value="ID"/>
+        <property name="kafkaTopicName" value="e_mp_vol_curve_ud"/>
+    </bean>
+    <!-- 日冻结最大需量 -->
+    <bean id="e_mp_day_demand"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_mp_day_demand_source"/>
+        <property name="datahubSubId" value="1640846322436XPL6N"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="MPED_ID"/>
+        <property name="filterIsId" value="ID"/>
+        <property name="kafkaTopicName" value="e_mp_day_demand"/>
+    </bean>
+    <!-- 电能表示值 -->
+    <bean id="e_mp_day_read"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_mp_day_read_source"/>
+        <property name="datahubSubId" value="1640143127940DAnlV"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="MPED_ID"/>
+        <property name="filterIsId" value="ID"/>
+        <property name="kafkaTopicName" value="e_mp_day_read"/>
+    </bean>
+    <!-- 电压 -->
+    <bean id="e_edc_cons_volt"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_edc_cons_volt_source"/>
+        <property name="datahubSubId" value="1640156545854Za6Sw"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="MPED_ID"/>
+        <property name="filterIsId" value="ID"/>
+        <property name="kafkaTopicName" value="e_edc_cons_volt"/>
+    </bean>
+    <!-- 电流 -->
+    <bean id="e_edc_cons_cur"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_edc_cons_cur_source"/>
+        <property name="datahubSubId" value="16401566567284L4Du"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="MPED_ID"/>
+        <property name="filterIsId" value="ID"/>
+        <property name="kafkaTopicName" value="e_edc_cons_cur"/>
+    </bean>
+    <!-- 电能表过流事件 -->
+    <bean id="e_meter_event_over_i"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_over_i_source"/>
+        <property name="datahubSubId" value="1640248993733dAZsq"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_over_i"/>
+    </bean>
+    <!-- 电能表开表盖事件 -->
+    <bean id="e_meter_event_open_lid"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_open_lid_source"/>
+        <property name="datahubSubId" value="1640249053747xtwHz"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_open_lid"/>
+    </bean>
+    <!-- 电能表恒定磁场干扰事件 -->
+    <bean id="e_meter_event_mag_interf"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_mag_interf_source"/>
+        <property name="datahubSubId" value="1640309712869xxoGs"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_mag_interf"/>
+    </bean>
+    <!-- 电能表清零事件 -->
+    <bean id="e_meter_event_clear"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_clear_source"/>
+        <property name="datahubSubId" value="16403097845850ZjTW"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_clear"/>
+    </bean>
+    <!-- 终端状态量变更记录 -->
+    <bean id="e_event_erc4"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_event_erc4"/>
+        <property name="datahubSubId" value="1640309846091MnOle"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="TERMINAL_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_event_erc4"/>
+    </bean>
+    <!-- 终端停上电事件 -->
+    <bean id="e_event_erc14"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_event_erc14_source"/>
+        <property name="datahubSubId" value="1640309981783hstEP"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="TERMINAL_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_event_erc4"/>
+    </bean>
+    <!-- 电能表辅助电源掉电事件 -->
+    <bean id="e_meter_event_assi_power_shut"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_assi_power_shut_source"/>
+        <property name="datahubSubId" value="1640310034963gRbRt"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_assi_power_shut"/>
+    </bean>
+    <!-- 电能表电源异常事件 -->
+    <bean id="e_meter_event_power_abn"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_power_abn_source"/>
+        <property name="datahubSubId" value="1640310119197Xk2zj"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_power_abn"/>
+    </bean>
+    <!-- 终端参数变更事件 -->
+    <bean id="e_event_erc3"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_event_erc3_source"/>
+        <property name="datahubSubId" value="1640310194664Le4bn"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="TERMINAL_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_event_erc3"/>
+    </bean>
+    <!-- 电能表开端钮盖事件 -->
+    <bean id="e_meter_event_open_term_lid"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_open_term_lid_source"/>
+        <property name="datahubSubId" value="1640310318963115o7"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_open_term_lid"/>
+    </bean>
+    <!-- 电能表失压事件 -->
+    <bean id="e_meter_event_lose_vol"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_lose_vol_source"/>
+        <property name="datahubSubId" value="1640310370494bl76x"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_lose_vol"/>
+    </bean>
+    <!-- 电能表失流事件 -->
+    <bean id="e_meter_event_lose_curr"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_lose_curr_source"/>
+        <property name="datahubSubId" value="1640310426925F8LJe"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_lose_curr"/>
+    </bean>
+    <!-- 电能表电压逆相序事件 -->
+    <bean id="e_meter_event_reve_phase"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_reve_phase_source"/>
+        <property name="datahubSubId" value="1640310478782khdUG"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_reve_phase"/>
+    </bean>
+    <!-- 电能表电压不平衡事件 -->
+    <bean id="e_meter_event_vol_unbalance"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_vol_unbalance_source"/>
+        <property name="datahubSubId" value="1640310525800SFqC1"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_vol_unbalance"/>
+    </bean>
+    <!-- 电能表校时事件 -->
+    <bean id="e_meter_event_chek_time"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_chek_time_source"/>
+        <property name="datahubSubId" value="1640310582261MkRUB"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_chek_time"/>
+    </bean>
+    <!-- 电能表欠压事件 -->
+    <bean id="e_meter_event_low_vol"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_low_vol_source"/>
+        <property name="datahubSubId" value="1640310641324P6iiB"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_low_vol"/>
+    </bean>
+    <!-- 电能表过压事件 -->
+    <bean id="e_meter_event_over_vol"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_over_vol_source"/>
+        <property name="datahubSubId" value="1640310705314KaIev"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_over_vol"/>
+    </bean>
+    <!-- 电能表全失压事件 -->
+    <bean id="e_meter_event_all_vol_lose"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_all_vol_lose_source"/>
+        <property name="datahubSubId" value="1640310752333RKBZJ"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_all_vol_lose"/>
+    </bean>
+    <!-- 电能表段相事件 -->
+    <bean id="e_meter_event_vol_break"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_vol_break_source"/>
+        <property name="datahubSubId" value="1640310796773ZSGfB"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_vol_break"/>
+    </bean>
+    <!-- 电能表时间超差 -->
+    <bean id="e_event_erc12"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_event_erc12_source"/>
+        <property name="datahubSubId" value="1640310852901F4E02"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="TERMINAL_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_event_erc12"/>
+    </bean>
+    <!-- 电压回路异常事件 -->
+    <bean id="e_event_erc10"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_event_erc10"/>
+        <property name="datahubSubId" value="1640310928941h76dr"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="TERMINAL_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_event_erc10"/>
+    </bean>
+    <!-- 电流回路异常事件 -->
+    <bean id="e_event_erc9"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_event_erc9"/>
+        <property name="datahubSubId" value="1640311014909v0smn"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="TERMINAL_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_event_erc9"/>
+    </bean>
+    <!-- 相序异常事件 -->
+    <bean id="e_event_erc11"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_event_erc11"/>
+        <property name="datahubSubId" value="1640311080743d525G"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="TERMINAL_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_event_erc11"/>
+    </bean>
+    <!-- 电压/电流不平衡事件 -->
+    <bean id="e_event_erc17"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_event_erc17"/>
+        <property name="datahubSubId" value="1640311132741Vh6ot"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="TERMINAL_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_event_erc17"/>
+    </bean>
+    <!-- 电能表电流不平衡事件 -->
+    <bean id="e_meter_event_cur_unbalance"
+          class="com.tl.dataprocess.kafka.KafkaProducer"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="datahubPojectName" value="eas"/>
+        <property name="datahubTopicName" value="e_meter_event_cur_unbalance_source"/>
+        <property name="datahubSubId" value="1640311218922tufzq"/>
+        <property name="isRun" value="1"/>
+        <property name="filterField" value="METER_ID"/>
+        <property name="filterIsId" value=""/>
+        <property name="kafkaTopicName" value="e_meter_event_cur_unbalance"/>
+    </bean>
+
+<!--    &lt;!&ndash; 功率因数 &ndash;&gt;-->
+<!--    <bean id="e_edc_cons_factor"-->
+<!--          class="com.tl.dataprocess.kafka.KafkaProducer"-->
+<!--          init-method="init">-->
+<!--        &lt;!&ndash; 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 &ndash;&gt;-->
+<!--        <property name="threadPoolSize" value="0"/>-->
+<!--        <property name="datahubClient" ref="datahubClient"/>-->
+<!--        <property name="datahubPojectName" value="eas"/>-->
+<!--        <property name="datahubTopicName" value="e_edc_cons_factor_soure"/>-->
+<!--        <property name="datahubSubId" value="1640156704824aC6hs"/>-->
+<!--        <property name="isRun" value="1"/>-->
+<!--        <property name="kafkaTopicName" value="e_edc_cons_factor"/>-->
+<!--    </bean>-->
+
+</beans>

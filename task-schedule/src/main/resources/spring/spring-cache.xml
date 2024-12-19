@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="appCacheService" class="com.ls.pf.base.impl.cache.dcache.RemoteCacheService">
+		<property name="cacheManager" value="redis"></property>
+		<property name="cacheName" value="mycache"></property>
+		<property name="cacheScope" value="application"></property>
+		<property name="isHash" value="false"></property>
+		<!-- <property name="redisInstanceId" value="local"></property> -->
+	</bean>
+	<bean id="operateBzData" class="com.ls.pf.common.dataCath.bz.service.impl.OperateBzData">
+		<property name="cacheService" ref="appCacheService" />
+	</bean>
+</beans>

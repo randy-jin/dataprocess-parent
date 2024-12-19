@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="startSQLListener" class="com.ls.athena.framework.sqlconfig.ProtocolConfigLoad" init-method="init">
+		<property name="apolloToken" value="7a5c0c7569de36926efe585a82585c7d126490cc"/>
+		<property name="portaUrl" value="http://120.55.242.68:18085"/>
+		<property name="appid" value="todatahub"/>
+		<property name="namespaseName" value="sqlMapping.xml"/>
+	</bean>
+	<bean id="paramInit" class="com.tl.dataprocess.param.ParamConstants" init-method="init">
+		<property name="orgStartWith" value="41"/>
+	</bean>
+
+</beans>

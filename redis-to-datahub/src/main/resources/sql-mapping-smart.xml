@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SqlMappingConfig>
+    <listSql>
+        <SqlMapping>
+            <!-- 电流谐波总畸变率超限事件 -->
+            <businessDataitemIds>303A0800</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_current_distort_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING</fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压谐波总畸变率超限事件 -->
+            <businessDataitemIds>30390800</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_voltage_distort_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING</fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表功率因数超下限事件 -->
+            <businessDataitemIds>303B0700</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_power_factor_lower_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING</fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表零线电流异常事件 -->
+            <businessDataitemIds>30400200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_zero_current_abnormal_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING</fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 管理模组插拔事件记录 -->
+            <businessDataitemIds>30310200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_module_plug_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING</fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 升级事件 -->
+            <businessDataitemIds>30360200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_upgrade_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,upgrade_stime:TIMESTAMP,upgrade_etime:TIMESTAMP,positive_indication:DOUBLE,reverse_indication:DOUBLE,download_mark:STRING,before_version:STRING,after_version:STRING,app_name:STRING,upgrade_result:STRING,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表广播校时事件 -->
+            <businessDataitemIds>303C0200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_broadcast_timing_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 计量模组掉电事件 -->
+            <businessDataitemIds>30500200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_module_powerloss_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 应用监测事件 -->
+            <businessDataitemIds>36020200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_app_monitor_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,alarm_type:STRING,actual_value:DOUBLE,threshold:DOUBLE,container_name:STRING,app_name:STRING,serve_name:STRING,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 蓝牙从设备列表 -->
+            <businessDataitemIds>F20B0400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>r_meter_bluetooth_devicelist_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>MPED_ID:BIGINT,TERMINAL_ID:BIGINT,MAC_ADDR:STRING,ASSET_NO:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 蓝牙锁具列表 -->
+            <businessDataitemIds>F20B0700</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>r_meter_bluetooth_locklist_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>MPED_ID:BIGINT,TERMINAL_ID:BIGINT,MAC_ADDR:STRING,ASSET_NO:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 表内温度（端子温度组） -->
+            <businessDataitemIds>20100400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>r_meter_block_temp_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>MPED_ID:BIGINT,TERMINAL_ID:BIGINT,TEMP_GROUP:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 端子座温度分钟变化量 -->
+            <businessDataitemIds>20430200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>r_meter_block_temp_min_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>MPED_ID:BIGINT,TERMINAL_ID:BIGINT,DELTA_GROUP:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 端子座过热报警事件记录 -->
+            <businessDataitemIds>30320200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_block_overheat_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 端子座温度剧变事件 -->
+            <businessDataitemIds>30330200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_block_temp_change_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 端子座温度不平衡事件 -->
+            <businessDataitemIds>30340200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_block_temp_unbalance_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 锁具事件 -->
+            <businessDataitemIds>37010200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_lock_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,lock_status:STRING,lock_displace:STRING,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压（分相数值数组） -->
+            <businessDataitemIds>20000200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_phase_voltage_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,phase_voltage:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压（分相偏差数值数组） -->
+            <businessDataitemIds>20000700</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_phase_deviation_voltage_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,deviation_voltage:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压（零正负序） -->
+            <businessDataitemIds>20000600,20000900,20000A00</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_zero_plus_minus_voltage_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,voltage:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 高精度电流 -->
+            <businessDataitemIds>20010500</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_high_precision_current_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,current:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电流（零正负序） -->
+            <businessDataitemIds>20010600,20010900,20010A00</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_zero_plus_minus_current_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,current:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压波形失真度 -->
+            <businessDataitemIds>200B0200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_voltage_waveform_distortion_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,distortion:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电流波形失真度 -->
+            <businessDataitemIds>200C0200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_current_waveform_distortion_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,distortion:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压波动量 -->
+            <businessDataitemIds>20350200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_voltage_fluctuation_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,fluctuation:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压波动频次 -->
+            <businessDataitemIds>20360200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_voltage_fluctuation_frequency_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,frequency:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压不平衡 -->
+            <businessDataitemIds>20260400,20260500</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_voltage_unbalance_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,degree:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电流不平衡 -->
+            <businessDataitemIds>20270400,20270500</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_current_unbalance_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,degree:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 间谐波电压含有率 -->
+            <businessDataitemIds>20490200,20490300,20490400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_inter_voltage_content_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,voltage_content:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 间谐波电流含有率 -->
+            <businessDataitemIds>204A0200,204A0300,204A0400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_inter_current_content_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,current_content:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 高精度电流换算及单位 -->
+            <businessDataitemIds>20010700</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_high_precision_current_unit_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,current_content:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电网频率 -->
+            <businessDataitemIds>200F0200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>r_meter_grid_frequency_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>mped_id:BIGINT,terminal_id:BIGINT,frequency:DOUBLE,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压短时闪变 -->
+            <businessDataitemIds>20370200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_voltage_short_flicker_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,flicker:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压长时闪变 -->
+            <businessDataitemIds>20380200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_voltage_long_flicker_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,flicker:DOUBLE,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 软件标识 -->
+            <businessDataitemIds>48000500</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>r_meter_software_sign_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>mped_id:BIGINT,terminal_id:BIGINT,sign:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 谐波电压含有率 -->
+            <businessDataitemIds>200D0200,200D0300,200D0400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_harmonic_voltage_content_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,voltage_content:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 谐波电流含有率 -->
+            <businessDataitemIds>200E0200,200E0300,200E0400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_harmonic_current_content_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,current_content:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 谐波有功功率 -->
+            <businessDataitemIds>20480200,20480300,20480400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_harmonic_active_power_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,active_power:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 间谐波电压 -->
+            <businessDataitemIds>20600200,20600300,20600400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_inter_voltage_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,voltage:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 间谐波电流 -->
+            <businessDataitemIds>20610200,20610300,20610400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_inter_current_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,current:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 间谐波功率 -->
+            <businessDataitemIds>20620200,20620300,20620400</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_mp_inter_power_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>id:BIGINT,data_date:STRING,phase_flag:STRING,power:STRING,org_no:STRING,status:STRING,data_src:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压暂升事件 -->
+            <businessDataitemIds></businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_voltage_increase_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,bef_voltage:DOUBLE,bef_current:DOUBLE,bef_power_factor:DOUBLE,bef_frequency:DOUBLE,aft_voltage:DOUBLE,aft_current:DOUBLE,aft_power_factor:DOUBLE,aft_frequency:DOUBLE,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压中断事件 -->
+            <businessDataitemIds>304B0200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_voltage_interrupt_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,bef_voltage:DOUBLE,bef_current:DOUBLE,bef_power_factor:DOUBLE,bef_frequency:DOUBLE,aft_voltage:DOUBLE,aft_current:DOUBLE,aft_power_factor:DOUBLE,aft_frequency:DOUBLE,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电压暂降事件 -->
+            <businessDataitemIds>30490200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>e_meter_event_voltage_reduce_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>event_id:BIGINT,meter_id:BIGINT,event_date:STRING,input_time:TIMESTAMP,exten_info:STRING,org_no:STRING,event_st:TIMESTAMP,event_et:TIMESTAMP,event_src:STRING,report_status:STRING,bef_voltage:DOUBLE,bef_current:DOUBLE,bef_power_factor:DOUBLE,bef_frequency:DOUBLE,aft_voltage:DOUBLE,aft_current:DOUBLE,aft_power_factor:DOUBLE,aft_frequency:DOUBLE,shard_no:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 外置蓝牙负荷开关状态字 -->
+            <businessDataitemIds>20420200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>hntl</projectName>
+            <topicName>r_meter_bluetooth_switch_status_source</topicName>
+            <shardCount>1</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>mped_id:BIGINT,terminal_id:BIGINT,run_status:STRING,shard_no:STRING,insert_time:TIMESTAMP
+            </fields>
+        </SqlMapping>
+    </listSql>
+</SqlMappingConfig>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+    <apollo:config/>
+
+    <!-- only one instance -->
+    <bean id="jedisSingleConnectionFactory"
+          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="poolConfig" ref="jedisPoolConfig"/>
+        <property name="hostName" value="${spring.redis.host:apollo}"/>
+        <property name="port" value="${spring.redis.port:20024}"/>
+        <property name="password" value="${spring.redis.password:1qaz2wsx4rfv}"/>
+        <property name="usePool" value="true"/>
+    </bean>
+
+    <!-- redis template definition -->
+    <bean id="redisSingleTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisSingleConnectionFactory"/>
+        <property name="keySerializer" ref="stringRedisSerializer"/>
+        <property name="valueSerializer" ref="stringRedisSerializer"/>
+        <property name="hashKeySerializer" ref="stringRedisSerializer"/>
+        <property name="hashValueSerializer" ref="stringRedisSerializer"/>
+    </bean>
+
+
+    <bean name="b1" class="org.future.systemhandler.SystemManager" init-method="systemInit">
+        <property name="projectName" value="档案加载"/>
+        <property name="task">
+            <list>
+                <bean id="task1" class="org.future.pojo.Task">
+                    <property name="threadSize" value="5"/>
+                    <property name="queueName" value="AR"/>
+                    <property name="executeTask" value="com.tl.eas.archives.service.SendTagsHandler"/>
+                </bean>
+            </list>
+        </property>
+        <property name="mapzz">
+            <map>
+                <entry key="redisTemplate" value-ref="redisSingleTemplate"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>

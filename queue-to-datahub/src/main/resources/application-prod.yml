@@ -1,0 +1,33 @@
+spring:
+  redis:
+    password: 1qaz2wsx4rfv   # 密码（默认为空）
+    timeout: 60000  # 连接超时时长（毫秒）ms
+    jedis:
+      pool:
+        max-active: 1000  # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1      # 连接池最大阻塞等待时间（使用负值表示没有限制）ms
+        max-idle: 10      # 连接池中的最大空闲连接
+        min-idle: 3       # 连接池中的最小空闲连接
+        max-attempts: 5   # 重试次数
+        test-on-borrow: true # 是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
+    sentinel:
+      master: sentinel-21.32.65.67-28479
+      nodes: 21.32.65.63:27479
+  redis-archives:
+    database: 0
+    hosts: 21.32.65.64
+    port: 20024
+    password: 1qaz2wsx4rfv   # 密码（默认为空）
+    timeout: 60000  # 连接超时时长（毫秒）ms
+  redis-cluster:
+    password: 1qaz2wsx4rfv   # 密码（默认为空）
+    timeout: 60000  # 连接超时时长（毫秒）ms
+    cluster:
+      nodes: 21.32.65.63:20018,21.32.65.64:20019,21.32.65.65:20020,21.32.65.66:20021,21.32.65.67:20022,21.32.65.68:20023
+      max-redirects: 6
+  datahub:
+    project: eas
+task:
+  batch:
+    delsize: 50
+    timeout: 5

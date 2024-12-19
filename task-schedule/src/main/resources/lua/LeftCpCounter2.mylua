@@ -1,0 +1,36 @@
+local getIntPart=function(x)
+  if x <= 0 then
+     return math.ceil(x)
+  end
+  if math.ceil(x) == x then
+     x = math.ceil(x)
+  else
+     x = math.ceil(x) - 1
+  end
+  return x
+end
+local task=KEYS[1]
+local pref_subtask2cp=KEYS[2]
+local step=tonumber(KEYS[3])
+local subtask
+local amount=0
+local fromIdx=0
+local toIdx=0
+local tmpTbl
+local tbllLen=0;
+local subtaskLen=redis.call("llen",task)
+if step==0 then
+   step=getIntPart(subtaskLen/3)
+end
+while fromIdx<subtaskLen do
+  toIdx=fromIdx+step
+  tmpTbl=redis.call("lrange",task,fromIdx,toIdx)
+  tbllLen=table.getn(tmpTbl)
+  for i=1,tbllLen do
+     subtask=tmpTbl[i]
+     amount=amount+tonumber(redis.call("scard",pref_subtask2cp..subtask))
+  end
+  fromIdx=toIdx+1
+  tmpTbl=nil
+end
+return amount

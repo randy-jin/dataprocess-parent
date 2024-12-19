@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <display-name>easb</display-name>
+
+    <!--<servlet>-->
+        <!--<servlet-name>spring</servlet-name>-->
+        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet-->
+        <!--</servlet-class>-->
+        <!--<init-param>-->
+            <!--<param-name>contextConfigLocation</param-name>-->
+            <!--<param-value>-->
+                <!--classpath:spring/spring-servlet.xml-->
+            <!--</param-value>-->
+        <!--</init-param>-->
+        <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>spring</servlet-name>-->
+        <!--<url-pattern>/</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:applicationContext.xml,
+            classpath:bean-utils.xml,
+            classpath:spring/datasource.xml,
+            classpath:jobs/comn-job-scheduler.xml
+        </param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>com.tl.easb.system.listener.SystemContextListener
+        </listener-class>
+    </listener>
+    <context-param>
+        <param-name>systemListenerInit</param-name>
+        <param-value>
+            <!-- 主任务监听 参数说明：
+            com.tl.easb.system.listener.JobListener#000 不启动任何任务
+            com.tl.easb.system.listener.JobListener#100 只安排采集任务
+            com.tl.easb.system.listener.JobListener#010 只安排配置文件中的任务
+            com.tl.easb.system.listener.JobListener#001 只安排数据库中的任务
+            com.tl.easb.system.listener.JobListener#111 安排所有类型任务,-->
+            com.tl.easb.system.listener.JobListener#100,
+            <!-- 启动采集子任务守护线程 -->
+            com.tl.easb.system.listener.SubJobListener,
+            <!-- 启动数据项加载守护线程-->
+            com.tl.easb.system.listener.RecordsSyncListener,
+            <!-- 数据项缓存信息初始化 -->
+            com.tl.easb.cache.dataitem.DataItemCache
+
+        </param-value>
+    </context-param>
+
+</web-app>

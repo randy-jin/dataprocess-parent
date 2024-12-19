@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+    <apollo:config/>
+    <!--datahub-->
+    <!--<bean id="datahubClient" class="com.aliyun.datahub.DatahubClient">-->
+        <!--<constructor-arg name="conf" ref="datahubConfiguration"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="datahubConfiguration" class="com.aliyun.datahub.DatahubConfiguration">-->
+        <!--<constructor-arg name="account" ref="aliyunAccount" />-->
+        <!--<constructor-arg name="endpoint" value="http://dh-cn-hangzhou.aliyuncs.com" />-->
+    <!--</bean>-->
+    <!--<bean id="aliyunAccount" class="com.aliyun.datahub.auth.AliyunAccount">-->
+        <!--<constructor-arg name="accessId" value="wftF2HEfAtTCx2zr" />-->
+        <!--<constructor-arg name="accessKey" value="3ZSdbOdkNTQVuU9E2qHP1N4571iGe9" />-->
+    <!--</bean>-->
+
+    <!--datahub-->
+    <bean id="datahubClient" class="com.aliyun.datahub.DatahubClient">
+        <constructor-arg name="conf" ref="datahubConfiguration"/>
+    </bean>
+    <bean id="datahubConfiguration" class="com.aliyun.datahub.DatahubConfiguration">
+        <constructor-arg name="account" ref="aliyunAccount"/>
+        <constructor-arg name="endpoint" value="${endpoint:apollo}"/>
+    </bean>
+    <bean id="aliyunAccount" class="com.aliyun.datahub.auth.AliyunAccount">
+        <constructor-arg name="accessId" value="${accessId:apollo}"/>
+        <constructor-arg name="accessKey" value="${accessKey:apollo}"/>
+    </bean>
+</beans>

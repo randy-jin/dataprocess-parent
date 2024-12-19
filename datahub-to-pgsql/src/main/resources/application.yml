@@ -1,0 +1,11 @@
+server:
+  port: 8080
+app:
+  id: topgsql
+apollo:
+  meta: http://120.55.242.68:18083
+  bootstrap:
+    enabled: true
+    namespaces: application
+logging:
+  config: classpath:logging-config.xml

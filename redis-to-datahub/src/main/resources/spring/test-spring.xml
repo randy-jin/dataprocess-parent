@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd   
+	http://www.springframework.org/schema/osgi
+	http://www.springframework.org/schema/osgi/spring-osgi.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="test2" class="com.ls.athena.core.chain.DefaultChainMessageProcessor">
+		<constructor-arg name="defaultName" value="" />
+		<constructor-arg name="processors">
+			<map>
+				<entry key="receiveQueue"><!-- 接收冻结数据消息 -->
+					<bean class="com.ls.athena.message.redis.proxy.RedisProxyProcessor">
+						<property name="queueName" value="Q_OOP_DATA_IOTTABLE"/>
+						<property name="factory" ref="redisFactory" />
+						<property name="receiveMaxThreadCount" value="1" /> <!-- 接收redis消息线程数 -->
+						<property name="pipelineReadCount" value="1" />	<!-- 管道读取数 -->
+						<property name="poolName" value="test1s" />
+						<property name="forwardName" value="persistentTransform" />
+					</bean>
+				</entry>
+				<entry key="persistentTransform"><!-- 持久转化 -->
+					 <bean class="com.tl.hades.dataprocess.smartiot.SmartIotEventDataProcessor">
+						<property name="forwardName" value="dataPersistent" />
+					</bean><!-- 将数据对应了表字段 -->
+				</entry>
+				<entry key="dataPersistent"><!-- 调用数据存储 -->
+					<bean id="SG3761Protocol" class="com.ls.athena.core.chain.ChainProxyMessageProcessor">
+						<constructor-arg name="managerName" value="SG3761DataPersistManager" />
+						<constructor-arg name="forwardName" value="neoBatchPersistent" />
+					</bean>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

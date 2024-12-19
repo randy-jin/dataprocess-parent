@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+	<bean id="springUtils" class="com.tl.easb.utils.SpringUtils"/>
+	
+	<bean id="propertyUtils" class="com.tl.easb.utils.PropertyUtils">
+		<property name="propertiesMaps"  > 
+			<props>
+				<prop key="task">/task.properties</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

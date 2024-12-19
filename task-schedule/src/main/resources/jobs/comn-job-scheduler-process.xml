@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>	
+	<!-- 存储过程执行定时任务类配置 -->
+	<!-- 计算抄到率 PROC_UPDATE_E_COLL_SUCC_RATE -->
+	<!-- 计算抄到率 PROC_UPDATE_E_COLL_SUCC_RATE 每天凌晨2点执行 -->
+	<bean id="PROC_UPDATE_E_COLL_SUCC_RATE1" class="com.tl.easb.task.job.common.exec.ProcessExecJob" >
+		<!-- 执行周期，按照标准Cron表达式进行配置 -->
+		<property name="cronExpression" value="0/10 * * * * ?" />
+		<!-- 执行参数，存储过程名称，可以以【,】分隔符分开执行多个过程 -->
+		<property name="params" value="PROC_UPDATE_E_COLL_SUCC_RATE" />
+		<!-- 任务编号，不能与其他过程调度执行任务重复 -->
+		<property name="triggerName" value="PROC_UPDATE_E_COLL_SUCC_RATE_1" />
+	</bean>
+</beans>

@@ -1,0 +1,10 @@
+local task=KEYS[1]
+local pref_subtask2cp=KEYS[2]
+local subtaskLen=redis.call("llen",task)-1
+local subtask
+local amount=0
+for i=0,subtaskLen do
+  subtask=redis.call("lindex",task,i)
+  amount=amount+tonumber(redis.call("scard",pref_subtask2cp..subtask))
+end
+return amount

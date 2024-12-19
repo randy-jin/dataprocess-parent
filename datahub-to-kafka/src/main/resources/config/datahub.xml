@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+    <apollo:config order="1"/>
+    <apollo:config namespaces="eas-drds-dev" order="2"/>
+    <!--datahub-->
+    <bean id="datahubClient" class="com.aliyun.datahub.DatahubClient">
+        <constructor-arg name="conf" ref="datahubConfiguration"/>
+    </bean>
+    <bean id="datahubConfiguration" class="com.aliyun.datahub.DatahubConfiguration">
+        <constructor-arg name="account" ref="aliyunAccount"/>
+        <constructor-arg name="endpoint" value="${default.endpoint:apollo}"/>
+    </bean>
+    <bean id="aliyunAccount" class="com.aliyun.datahub.auth.AliyunAccount">
+        <constructor-arg name="accessId" value="${default.access.id:apollo}"/>
+        <constructor-arg name="accessKey" value="${default.access.key:apollo}"/>
+    </bean>
+</beans>

@@ -1,0 +1,42 @@
+#ignore all files in the target/ directory
+target/
+#ignore all files in the build/ directory
+build/
+#ignore all files in the localtest/ directory
+localtest/
+.settings/
+.idea/
+classes/
+*/target/
+.idea/*/*
+
+################Java.ignore
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctx
+*.iml
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+#*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.classpath
+.project
+.DS_Store
+platform.properties
+/bin/

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+
+    <apollo:config order="1"/>
+    <apollo:config namespaces="toPgsql1" order="2"/>
+
+    <!-- async -->
+
+    <bean id="thread1"
+          class="com.tl.PgsqlWriterPg"
+          init-method="init">
+        <!-- 如果设置为0，则根据active shard数作为线程数，否则根据设定的threadPoolSize为线程数 -->
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+        <property name="datahubPojectName" value="${datahubPojectName:apollo}"/>
+        <property name="datahubTopicName" value="${topicName1:apollo}"/>
+        <property name="datahubSubId" value="${datahubSubId1:apollo}"/>
+
+        <!--
+            三种选择：
+            1、insert ignore into，插入不覆写原纪录
+            2、replace into，插入并覆写原纪录
+            3、insert into，正常插入，该方式要注意业务数据如果无法避免重复数据，则会抛出主键冲突异常，不建议使用
+        -->
+        <property name="sqlPrefix" value="${sqlPrefix1:apollo}"/>
+        <property name="tableName" value="${tableName1:apollo}"/>
+        <property name="isRun" value="${isRun1:1}"/>
+        <property name="dbName" value="${dbName:apollo}"/>
+
+    </bean>
+
+</beans>

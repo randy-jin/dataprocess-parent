@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd   
+	http://www.springframework.org/schema/osgi
+	http://www.springframework.org/schema/osgi/spring-osgi.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 开始就加载datahub的pro文件，读取加载的配置文件，要将配置文件放在正确的地方 -->
+    <!-- load up datahub properties. read prop file for load up. please put the prop file in right place. -->
+    <bean id="dataHubPropertiesLoad" class="com.tl.hades.datahub.DataHubProps" init-method="init">
+        <property name="accessId" value="${default.access.id}"/>
+        <property name="accessKey" value="${default.access.key}"/>
+        <property name="endpoint" value="${default.endpoint}"/>
+        <property name="pjt" value="${default.project}"/>
+    </bean>
+    <bean id="busiRedisFactoryImpl" class="com.ls.athena.message.redis.RedisFactoryImpl">
+        <constructor-arg name="maxActive" value="500"/>
+        <constructor-arg name="maxIdle" value="20"/>
+        <constructor-arg name="maxWait" value="3000"/>
+        <constructor-arg name="testOnBorrow" value="true"/>
+        <constructor-arg name="testOnReturn" value="true"/>
+    </bean>
+    <!--redis 配置 -->
+    <bean id="redisFactory" class="com.ls.athena.message.redis.RedisFactory">
+        <constructor-arg name="factoryName" value="busiRedisFactoryImpl"/>
+    </bean>
+
+    <bean id="SG3761DataPersistManager" class="com.ls.athena.core.chain.DefaultChainMessageProcessor">
+        <constructor-arg name="defaultName" value=""/>
+        <constructor-arg name="processors">
+            <map><!-- 数据入datahub存储库 然后刷新缓存 -->
+                <entry key="neoBatchPersistent"><!-- x批量收集持久化 -->
+                    <bean class="com.tl.hades.persist.DataPersistProcessor">
+                        <property name="refreshprocessor" ref="DataRefreshCache"/>
+                        <property name="dataHubControl" ref="dataHubControl"/>
+                    </bean>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="DataRefreshCache" class="com.tl.dataprocess.refreshkey.RefreshDataCache" init-method="init">
+        <property name="interval" value="5"/>
+        <property name="refresh" value="true"/>
+    </bean>
+
+</beans>

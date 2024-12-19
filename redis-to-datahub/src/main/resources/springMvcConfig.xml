@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!-- import redis configuration -->
+    <!-- redisConfig.xml配置文件为依赖配置，不管是采用cluster、Single还是sentinel模式都需要引用该配置 -->
+    <import resource="classpath:redisConfig.xml"/>
+    <!-- Redis单实例 -->
+    <!--<import resource="classpath:redisSingleConfig.xml" />-->
+    <!-- Redis哨兵模式 -->
+    <!--<import resource="classpath:redisSentinelConfig.xml"/>-->
+    <!-- Redis分布式 -->
+    <import resource="classpath:redisClusterConfig-prod.xml"/>
+
+    <!-- 注意：以上三种模式一般情况下一个应用只会采用其中一种，如果需要两种或以上同时使用，则请注意业务层面的bean ID要保证唯一性，否则会导致启动失败 -->
+
+</beans>

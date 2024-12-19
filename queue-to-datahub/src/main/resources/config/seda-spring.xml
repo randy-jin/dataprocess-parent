@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="dataProcess" class="com.tl.common.seda.service.Service">
+        <constructor-arg index="0" type="java.lang.String" value="1"/>
+        <constructor-arg index="1" type="java.lang.String" value="com.tl.QueueDataProcessCreator"/>
+        <constructor-arg index="2" type="java.util.Map">
+            <map>
+                <entry key="sentinelRedisHelper" value-ref="sentinelRedisHelper"/>
+                <entry key="terminalArchives" value-ref="terminalArchives"/>
+                <entry key="datahubHelper" value-ref="datahubHelper"/>
+                <entry key="dataHubShardCache" value-ref="dataHubShardCache"></entry>
+                <entry key="clearHelper" value-ref="clearHelper"></entry>
+            </map>
+        </constructor-arg>
+        <constructor-arg index="3" type="java.util.Map">
+            <map>
+                <entry key="sentinelRedisTemplate" value-ref="sentinelRedisTemplate"/>
+            </map>
+        </constructor-arg>
+        <constructor-arg index="4" value="true"/>
+        <constructor-arg index="5" value="false"/>
+    </bean>
+</beans>

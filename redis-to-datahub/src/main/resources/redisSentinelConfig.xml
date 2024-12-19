@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- redis的连接池pool，不是必选项：timeout/password -->
+	<!--<bean id="jedisSentinelPool" class="redis.clients.jedis.JedisSentinelPool">-->
+                <!--<constructor-arg name="masterName" value="sentinel-25.32.166.5-20029" />-->
+                <!--<constructor-arg name="sentinels">-->
+                        <!--<set>-->
+                                <!--<value>25.32.166.5:20026</value>-->
+                                <!--<value>25.32.166.5:20027</value>-->
+                                <!--<value>25.32.166.5:20028</value>-->
+                        <!--</set>-->
+                <!--</constructor-arg>-->
+                <!--<constructor-arg name="poolConfig" ref="jedisPoolConfig" />-->
+                <!--<constructor-arg name="timeout" value="10000" type="int" />-->
+                <!--<constructor-arg name="password" value="1qaz2wsx4rfv" />-->
+        <!--</bean>-->
+    <bean id="jedisSentinelPool" class="redis.clients.jedis.JedisSentinelPool">
+        <constructor-arg name="masterName" value="sentinel-21.32.65.65-28379" />
+        <constructor-arg name="sentinels">
+            <set>
+                <value>21.32.65.64:27379</value>
+                <value>21.32.65.65:27379</value>
+                <value>21.32.65.66:27379</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig" />
+        <constructor-arg name="timeout" value="10000" type="int" />
+        <constructor-arg name="password" value="1qaz2wsx4rfv" />
+    </bean>
+
+</beans>

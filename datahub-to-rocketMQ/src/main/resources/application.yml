@@ -1,0 +1,4 @@
+# dev是外网开发时的环境，test是内网仿真环境，prod是内网生产环境
+spring:
+  profiles:
+    active: dev

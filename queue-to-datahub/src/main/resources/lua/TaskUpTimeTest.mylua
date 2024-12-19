@@ -1,0 +1,10 @@
+local upTaskTime
+local cp
+local subtask
+local cp2subtask=KEYS[2]
+local upkey=KEYS[3]
+local time=KEYS[4]
+for i=1,KEYS[1] do
+  redis.call("lpush",cp2subtask,ARGV[i])
+  redis.call("set","TEST",time)
+end

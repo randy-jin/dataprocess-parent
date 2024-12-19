@@ -1,0 +1,14 @@
+local strStartPos=redis.call("get",KEYS[1])
+local step=tonumber(KEYS[2])
+local key_task2subject=KEYS[3]
+local startPos
+if strStartPos==false then 
+ startPos=0
+else 
+  startPos=tonumber(strStartPos)
+end
+--end position should be exclusive 
+
+local epos= startPos+step-1
+redis.call("set",KEYS[1], epos+1)
+return redis.call("lrange",key_task2subject,startPos,epos)

@@ -1,0 +1,26 @@
+local upTaskTime
+local cp
+local subtask
+local cp2subtask=KEYS[2]
+local upkey=KEYS[3]
+local time=KEYS[4]
+for i=1,KEYS[1] do
+  cp=ARGV[i]
+  subtask= redis.call("hget",cp2subtask,cp)
+  if subtask~=false then
+  local t=string.find(subtask,"_")
+  local tstr=string.sub(subtask,t+1,#subtask)
+ 
+  local a=string.find(tstr,"_")
+  local astr=string.sub(tstr,a+1,#tstr)
+  
+  local ta=string.find(astr,"_")
+  local tastr=string.sub(astr,ta+1,#astr)
+  
+  local d=string.find(tastr,"_")
+  local dstr=string.sub(tastr,0,d-1)
+	upTaskTime=upkey..string.sub(subtask,0,t)..dstr
+    redis.call("set",upTaskTime,time)
+  end
+end
+

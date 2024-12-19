@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+
+    <apollo:config order="1"/>
+    <apollo:config namespaces="ots" order="2"/>
+    <bean id="e_mp_power_curve_ud_async"
+          class="com.tl.dataprocess.tablestore.TableStoreBatchWriter"
+          init-method="init">
+        <property name="threadPoolSize" value="0"/>
+        <property name="datahubClient" ref="datahubClient"/>
+        <property name="asyncClient" ref="asyncClient"/>
+        <property name="datahubPojectName" value="${datahubPojectName:apollo}"/>
+        <property name="datahubTopicName" value="${datahubTopicName:apollo}"/>
+        <property name="datahubSubId" value="${datahubSubId:apollo}"/>
+        <property name="tablestoreTableName" value="${tablestoreTableName:apollo}"/>
+        <property name="vcolumnName" value="${vcolumnName:apollo}"/>
+        <property name="isRun" value="${isRun1:1}"/>
+        <property name="tablestorePrimaryKey" value="${tablestorePrimaryKey:apollo}"/>
+        <!--<property name="tablestorePrimaryKeyList">-->
+        <!--<map>-->
+        <!--<entry key="id" value="int" />-->
+        <!--<entry key="data_date" value="string" />-->
+        <!--<entry key="data_type" value="int" />-->
+        <!--</map>-->
+        <!--</property>-->
+        <property name="datahubSearchSize" value="${datahubSearchSize:1000}"/>
+        <property name="tablestoreWriteSize" value="${tablestoreWriteSize:200}"/>
+    </bean>
+
+</beans>

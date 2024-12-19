@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- only one instance -->
+	<bean id="jedisSingleConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="poolConfig" ref="jedisPoolConfig" />
+		<property name="hostName" value="120.55.242.68" />
+		<property name="port" value="52763" />
+		<!-- <property name="password" value="foobared" /> -->
+	</bean>
+
+	<!-- redis template definition -->
+	<bean id="redisSingleTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisSingleConnectionFactory" />
+		<property name="defaultSerializer" ref="serializer" />
+		<property name="keySerializer" ref="serializer" />
+		<property name="valueSerializer" ref="serializer" />
+	</bean>
+
+	<!-- 以下为业务层面配置 -->
+	<bean id="redisClusterCacheService"
+		class="com.tl.eas.common.cache.dcache.impl.redis.RedisClusterCacheService">
+		<property name="redisTemplate" ref="redisSingleTemplate" />
+	</bean>
+	<bean id="remoteRedisCache" class="com.tl.eas.common.cache.dcache.RemoteCacheService">
+		<property name="remoteCacheService" ref="redisClusterCacheService" />
+	</bean>
+
+	<bean id="operateBzData" class="com.tl.eas.common.cache.bz.service.impl.OperateBzData">
+		<property name="cacheService" ref="remoteRedisCache" />
+	</bean>
+	<bean id="docUserInfoCacheService"
+		class="com.tl.eas.common.cache.bz.service.impl.OperateBzUserData">
+		<property name="cacheService" ref="remoteRedisCache" />
+	</bean>
+
+</beans>

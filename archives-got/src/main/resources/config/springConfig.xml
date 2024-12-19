@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+
+    <apollo:config/>
+    <!-- 扫表加载，支持drds，供全量加载使用 -->
+    <bean id="scanArchivesChgAll" class="com.tl.eas.archives.drds.ScanArchivesChgDrdsAll" init-method="init">
+        <constructor-arg index="0" ref="jdbcTemplate"/>
+        <constructor-arg index="1" ref="redisSingleTemplate"/>
+        <property name="queueName" value="${queueNameAll:apollo}"/>
+        <property name="tableName" value="${tableNameAll:apollo}"/>
+        <property name="ALL_INTERVAL_TIME_KEY"
+                  value="ALL_INTERVAL_TIME"/><!--Redis中的key,可通过设置该值来修改档案"全量"变更表的扫描频度,defaultIntervalTime秒钟后生效-->
+        <property name="defaultIntervalTime" value="5"/><!--单位秒,档案"全量"变更表扫描频度,默认defaultIntervalTime秒钟扫描一次数据库-->
+    </bean>
+    <!-- 扫表加载，支持drds，供增量加载使用 -->
+    <bean id="msgArchivesChg" class="com.tl.eas.archives.drds.MsgArchivesChgDrds" init-method="init">
+        <constructor-arg index="0" ref="jdbcTemplate"/>
+        <constructor-arg index="1" ref="redisSingleTemplate"/>
+        <property name="queueName" value="${queueNameOne:apollo}"/>
+        <property name="tableName" value="${tableNameOne:apollo}"/>
+        <property name="defaultBeforeTime" value="600"/><!--单位秒,档案全量变更表一次扫描获取的变更记录时间跨度,默认获取10分钟内的变更记录-->
+        <property name="defaultIntervalTime" value="300"/><!--单位秒,档案变更表扫描频度,默认defaultIntervalTime秒钟扫描一次数据库-->
+        <property name="INTERVAL_BEFORE_TIME_KEY" value="INTERVAL_BEFORE_TIME"/>
+        <property name="INTERVAL_TIME_KEY"
+                  value="INTERVAL_TIME"/><!--Redis中的key,可通过设置该值来修改档案变更表的扫描频度,defaultIntervalTime秒钟后生效-->
+    </bean>
+
+</beans>

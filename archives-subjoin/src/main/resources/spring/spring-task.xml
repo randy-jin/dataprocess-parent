@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+
+    <apollo:config/>
+
+    <import resource="redisConfig.xml"/>
+    <import resource="redisClusterConfig.xml"/>
+
+    <!--任务线程-->
+    <bean name="b1" class="com.tl.taskcase.SystemInitHandler" init-method="init">
+        <property name="task">
+            <list>
+                <!--<bean id="task1" class="com.tl.taskcase.pojo.Task">-->
+                    <!--<property name="threads" value="5"/>-->
+                    <!--<property name="redisOn" value="true"/>-->
+                    <!--<property name="queue" value="${queueNameBySubjoin}"/>-->
+                    <!--<property name="runnable" value="com.ls.athena.archives.ArchiversProcessor"/>-->
+                <!--</bean>-->
+            </list>
+        </property>
+        <property name="mapzz">
+            <map>
+                <entry key="taskToRedis" value-ref="taskToRedis"/>
+                <entry key="jdbcTemplate" value-ref="jdbcTemplate"/>
+                <entry key="operateBzData" value-ref="operateBzData"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="ch" class="com.tl.taskcase.httpclient.HttpClient" init-method="httpClient">
+        <property name="path" value="/test"/>
+        <property name="port" value="18083"/>
+        <property name="taskToRedis" ref="taskToRedis"/>
+    </bean>
+
+    <!--redis队列使用-->
+    <bean id="taskToRedis" class="com.tl.taskcase.redis.TaskToRedisImpl">
+        <property name="redisTemplate" ref="defaultRedisTemplate"/>
+    </bean>
+
+</beans>

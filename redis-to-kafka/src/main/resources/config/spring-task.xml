@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--任务线程-->
+    <bean name="b1" class="com.zzuli.taskcdw.SystemInitHandler" init-method="init">
+        <property name="task">
+            <list>
+                <bean id="task1" class="com.zzuli.taskcdw.pojo.Task">
+                    <property name="threads" value="1"/>
+                    <property name="queue" value="Q_DATA_FREEZE_FRONT"/>
+                    <property name="runnable" value="com.tl.hades.dataprocess.sg3761.FreezeFrontDataProcessor"/>
+                </bean>
+                <bean id="task2" class="com.zzuli.taskcdw.pojo.Task">
+                    <property name="threads" value="2"/>
+                    <property name="queue" value="Q_DATA_FREEZE_S"/>
+                    <property name="runnable" value="com.tl.hades.dataprocess.sg3761.FreezeDataProcessor"/>
+                </bean>
+                <bean id="task3" class="com.zzuli.taskcdw.pojo.Task">
+                    <property name="threads" value="1"/>
+                    <property name="queue" value="Q_DATA_AUTO"/>
+                    <property name="runnable" value="com.tl.hades.dataprocess.sg3761.VoluntrayDataProcessor"/>
+                </bean>
+                <bean id="Q_T_STATUS" class="com.zzuli.taskcdw.pojo.Task">
+                    <property name="threads" value="1"/>
+                    <property name="queue" value="Q_T_STATUS"/>
+                    <property name="runnable" value="com.tl.hades.dataprocess.sg3761.OnOffLineDataProcessor"/>
+                </bean>
+            </list>
+        </property>
+        <property name="mapzz">
+            <map>
+                <entry key="dataHubControl" value-ref="dataHubControl"/>
+                <entry key="dataSourceControl" value-ref="dataSourceControl"/>
+            </map>
+        </property>
+    </bean>
+
+    <!--多数源（分布式队列）监听消费-->
+    <bean class="com.zzuli.taskcdw.multi.service.MultipleData" init-method="startListener">
+        <!--统一配置-->
+        <property name="jedisManager">
+            <bean class="com.zzuli.taskcdw.multi.pojo.JedisManager">
+                <!--jedis配置-->
+                <property name="jedisPoolConfig" ref="jedisPoolConfig"/>
+                <!--监控服务线程数（单个监控线程数）-->
+                <property name="threadCount" value="2"/>
+                <!--管道执行数-->
+                <property name="pipeline" value="50"/>
+                <!--redis连接失败重试-->
+                <property name="retry" value="5"/>
+                <!--获取的序列化方式-->
+                <property name="mineSerialize" value="com.tl.hades.persist.DefaultSeri"/>
+            </bean>
+        </property>
+        <!--监控url配置-->
+        <property name="conList">
+            <list>
+                <value>139.9.136.234:16388:1qaz2wsx4rfv</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="com.datasource.InitDis" init-method="initDis"/>
+
+    <bean id="dataSourceControl" class="com.datasource.impl.DataSourceToDis"/>
+    <!--<bean id="dataSourceControl" class="com.datasource.impl.DataSourceToKafka"/>-->
+
+    <bean id="refreshprocessor" class="com.tl.dataprocess.refreshkey.RefreshDataCache" init-method="init">
+        <property name="interval" value="5"/>
+        <property name="refresh" value="true"/>
+    </bean>
+</beans>

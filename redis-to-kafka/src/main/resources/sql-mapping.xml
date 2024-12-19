@@ -1,0 +1,2459 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SqlMappingConfig>
+    <listSql>
+        <!-- *****************日冻结类-开始******************* -->
+        <SqlMapping>
+            <!-- <afn>13</afn> <fn>5,161,162,163,164,165,166,167,168</fn> -->
+            <!-- 测量点日冻结电能示值 -->
+            <businessDataitemIds>
+                70101,70102,70103,70104,70105,70106,70107,70108,00100200,233001,233002,233008,233009,233010,233011,233012,233013,233014,233015,201015,201016,201017,201018,201019,201020,201021,201022
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_READ_SOURCE</topicName>
+            <shardCount>100</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID_DATE:STRING,ID:BIGINT,DATA_TYPE:STRING,COL_TIME:TIMESTAMP,R:DOUBLE,R1:DOUBLE,R2:DOUBLE,R3:DOUBLE,R4:DOUBLE,R5:DOUBLE,R6:DOUBLE,R7:DOUBLE,R8:DOUBLE,R9:DOUBLE,R10:DOUBLE,R11:DOUBLE,R12:DOUBLE,R13:DOUBLE,R14:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 测量点日冻结需量及需量发生时间 -->
+            <businessDataitemIds>
+                205003,205004,205005,205006,235001,235002,235013,235014,235015,235016,71601,71602,71603,71604,235004
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_DEMAND_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TYPE:STRING,COL_TIME:TIMESTAMP,DEMAND:DOUBLE,DEMAND_TIME:TIMESTAMP,DEMAND1:DOUBLE,DEMAND_TIME1:TIMESTAMP,DEMAND2:DOUBLE,DEMAND_TIME2:TIMESTAMP,DEMAND3:DOUBLE,DEMAND_TIME3:TIMESTAMP,DEMAND4:DOUBLE,DEMAND_TIME4:TIMESTAMP,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 测量点日冻结总及分相有功功率数据 -->
+            <businessDataitemIds>235003</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_POWER_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,TOTAL_MAX_P:DOUBLE,TOTAL_MAX_P_TIME:TIMESTAMP,TOTAL_MAX_PA:DOUBLE,TOTAL_MAX_PA_TIME:TIMESTAMP,TOTAL_MAX_PB:DOUBLE,TOTAL_MAX_PB_TIME:TIMESTAMP,TOTAL_MAX_PC:DOUBLE,TOTAL_MAX_PC_TIME:TIMESTAMP,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 测量点日冻结电压统计数据 oop电压合格率 -->
+            <businessDataitemIds>235005,2340901,2340902,2340903
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_VSTAT_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,UA_UUP_TIME:BIGINT,UA_LLW_TIME:BIGINT,UA_UP_TIME:BIGINT,UA_LOW_TIME:BIGINT,UA_NML_TIME:BIGINT,UB_UUP_TIME:BIGINT,UB_LLW_TIME:BIGINT,UB_UP_TIME:BIGINT,UB_LOW_TIME:BIGINT,UB_NML_TIME:BIGINT,UC_UUP_TIME:BIGINT,UC_LLW_TIME:BIGINT,UC_UP_TIME:BIGINT,UC_LOW_TIME:BIGINT,UC_NML_TIME:BIGINT,UA_MAX:DOUBLE,UA_MAX_TIME:TIMESTAMP,UA_MIN:DOUBLE,UA_MIN_TIME:TIMESTAMP,UB_MAX:DOUBLE,UB_MAX_TIME:TIMESTAMP,UB_MIN:DOUBLE,UB_MIN_TIME:TIMESTAMP,UC_MAX:DOUBLE,UC_MAX_TIME:TIMESTAMP,UC_MIN:DOUBLE,UC_MIN_TIME:TIMESTAMP,UA_AVERAGE:DOUBLE,UB_AVERAGE:DOUBLE,UC_AVERAGE:DOUBLE,UA_UP_RATE:DOUBLE,UB_UP_RATE:DOUBLE,UC_UP_RATE:DOUBLE,UA_DOWN_RATE:DOUBLE,UB_DOWN_RATE:DOUBLE,UC_DOWN_RATE:DOUBLE,UA_REGU_RATE:DOUBLE,UB_REGU_RATE:DOUBLE,UC_REGU_RATE:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 测量点日冻结电流越限统计数据 -->
+            <businessDataitemIds>235007</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_ISTAT_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,IA_UUP_TIME:BIGINT,IA_UP_TIME:BIGINT,IB_UUP_TIME:BIGINT,IB_UP_TIME:BIGINT,IC_UUP_TIME:BIGINT,IC_UP_TIME:BIGINT,I0_UP_TIME:BIGINT,IA_MAX:DOUBLE,IA_MAX_TIME:TIMESTAMP,IB_MAX:DOUBLE,IB_MAX_TIME:TIMESTAMP,IC_MAX:DOUBLE,IC_MAX_TIME:TIMESTAMP,I0_MAX:DOUBLE,I0_MAX_TIME:TIMESTAMP,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 测量点日冻结功率因数区段累计时间 -->
+            <businessDataitemIds>235011</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_PFTIME_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,SUM_TIME1:BIGINT,SUM_TIME2:BIGINT,SUM_TIME3:BIGINT,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 测量点日冻结电能量 -->
+            <businessDataitemIds>233016,233017,233018,233019
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_ENERGY_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_TYPE:STRING,COLL_TIME:TIMESTAMP,E:DOUBLE,E1:DOUBLE,E2:DOUBLE,E3:DOUBLE,E4:DOUBLE,E5:DOUBLE,E6:DOUBLE,E7:DOUBLE,E8:DOUBLE,E9:DOUBLE,E10:DOUBLE,E11:DOUBLE,E12:DOUBLE,E13:DOUBLE,E14:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <!-- *****************日冻结类-结束******************* -->
+
+        <!-- *****************月冻结类-结束******************* -->
+        <SqlMapping>
+            <!-- 测量点月冻结电能示值 -->
+            <businessDataitemIds>237001,237002,237015,237016,237017,237018,237019,237020,237021,237022
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_MON_READ_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID_DATE:STRING,ID:BIGINT,DATA_TYPE:STRING,COL_TIME:TIMESTAMP,R:DOUBLE,R1:DOUBLE,R2:DOUBLE,R3:DOUBLE,R4:DOUBLE,R5:DOUBLE,R6:DOUBLE,R7:DOUBLE,R8:DOUBLE,R9:DOUBLE,R10:DOUBLE,R11:DOUBLE,R12:DOUBLE,R13:DOUBLE,R14:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 测量点月冻结电能量 -->
+            <businessDataitemIds>237003,237004,237005,237006
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_MON_ENERGY_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID_DATE:STRING,ID:BIGINT,DATA_TYPE:STRING,COL_TIME:TIMESTAMP,E:DOUBLE,E1:DOUBLE,E2:DOUBLE,E3:DOUBLE,E4:DOUBLE,E5:DOUBLE,E6:DOUBLE,E7:DOUBLE,E8:DOUBLE,E9:DOUBLE,E10:DOUBLE,E11:DOUBLE,E12:DOUBLE,E13:DOUBLE,E14:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 测量点月冻结需量及需量发生时间 -->
+            <businessDataitemIds>238001,238002,238014,238015,238016,238017,238004
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_MON_DEMAND_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_TYPE:STRING,COL_TIME:TIMESTAMP,DEMAND:DOUBLE,DEMAND_TIME:TIMESTAMP,DEMAND1:DOUBLE,DEMAND_TIME1:TIMESTAMP,DEMAND2:DOUBLE,DEMAND_TIME2:TIMESTAMP,DEMAND3:DOUBLE,DEMAND_TIME3:TIMESTAMP,DEMAND4:DOUBLE,DEMAND_TIME4:TIMESTAMP,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <!-- *****************月冻结类-结束******************* -->
+
+        <!-- *****************曲线类-开始******************* -->
+        <SqlMapping>
+            <!-- 日测量点电流曲线 -->
+            <businessDataitemIds>2003001,232016,232017,232018,232019
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_CUR_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,PHASE_FLAG:BIGINT,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--日测量点电压曲线288个点 e_mp_vol_288 -->
+            <businessDataitemIds>232026,232027,232028,vol_288
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_VOL_288_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:STRING,PHASE_FLAG:STRING,UV:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日测量点电压曲线 -->
+            <businessDataitemIds>2002001,232013,232014,232015
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_VOL_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,PHASE_FLAG:BIGINT,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日测量点电能量费率曲线 -->
+            <businessDataitemIds>null
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_RATE_READ_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,PHASE_FLAG:BIGINT,R1:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING,INDICAT_TYPE:BIGINT            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日冻结直流模拟量曲线 -->
+            <businessDataitemIds>231009</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_ANALOG_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 总加组有功功率曲线 -->
+            <businessDataitemIds>232001,232002</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_TOTAL_POWER_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,DATA_TYPE:BIGINT,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 总加组有功电能量曲线 -->
+            <businessDataitemIds>232003,232004</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_TOTAL_ENERGY_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,DATA_TYPE:BIGINT,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日测量点功率因数曲线 -->
+            <businessDataitemIds>232020,232021,232022,232023
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_FACTOR_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,PHASE_FLAG:BIGINT,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日测量点功率曲线 -->
+            <businessDataitemIds>232005,232006,232007,232008,232009,232010,232011,232012
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_POWER_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,DATA_TYPE:BIGINT,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日测量点总电能示值曲线 -->
+            <businessDataitemIds>231005,231006,231007,231008,231010,231011,231012,231013
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_READ_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,DATA_TYPE:BIGINT,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日测量点点能量曲线 -->
+            <businessDataitemIds>231001,231002,231003,231004
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_ENERGY_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,DATA_TYPE:BIGINT,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日测量点电压相位角曲线 -->
+            <businessDataitemIds>232024</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_VOLPHASE_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,PHASE_SIGN:STRING,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日测量点电流相位角曲线 -->
+            <businessDataitemIds>232025</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_CURPHASE_CURVE_UD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TIME:STRING,DATA_POINT_FLAG:BIGINT,PHASE_SIGN:STRING,V:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- *****************曲线类-结束******************* -->
+
+        <!-- *****************终端上下线-开始******************* -->
+        <SqlMapping>
+            <!-- 终端上线信息 -->
+            <businessDataitemIds>1000000</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>S_TMNL_ONLINE_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                AREA_CODE:BIGINT,TERMINAL_ADDR:STRING,ONLINE_STATUS:STRING,REFRESH_TIME:TIMESTAMP,LOGIN_TIME:TIMESTAMP,HEARTBEAT_COUNT:BIGINT,REMOTE_IP:STRING,REMOTE_PORT:BIGINT,BYTES_SEND:BIGINT,BYTES_RECEIVED:BIGINT,COMPUTER_ID:BIGINT,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 终端下线信息 -->
+            <businessDataitemIds>1000001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>S_TMNL_OFFLINE_SOURCE_DATE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                AREA_CODE:BIGINT,TERMINAL_ADDR:STRING,OCCUR_TIME:TIMESTAMP,OCCUR_TYPE:STRING,SHARD_NO:STRING,DATA_DATE:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- *****************终端上下线-结束******************* -->
+
+        <!-- *****************终端事件-开始******************* -->
+        <SqlMapping>
+            <!-- 事件总表 -->
+            <businessDataitemIds>erc</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_REC</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,EVENT_ERC:STRING,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,UP_TIME:TIMESTAMP,IMPORTANT_FLAG:STRING,DEAL_STATUS:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--数据初始化和版本变更记录表 e_event_erc1 -->
+            <businessDataitemIds>erc1</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC1</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,EVENT_SIGN:STRING,BEFORE_VER:STRING,AFTER_VER:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--参数丢失 e_event_erc2 -->
+            <businessDataitemIds>erc2</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC2</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,TERMINAL_FLAG:STRING,MPED_FLAG:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--参数变更 e_event_erc3 -->
+            <businessDataitemIds>erc3</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC3</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,START_ADDRESS:STRING,PN:STRING,FN:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--状态量变更记录 e_event_erc4 -->
+            <businessDataitemIds>erc4</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC4</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,STATUS:STRING,CUR_STATUS:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--ERC5遥控跳闸记录 e_event_erc5 -->
+            <businessDataitemIds>erc5</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC5</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,TRIP_TURN:STRING,POWER:DOUBLE,POWER_2:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--ERC6功控跳闸记录 e_event_erc6 -->
+            <businessDataitemIds>erc6</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC6</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,TOTAL_ID:BIGINT,TRIP_TURN:STRING,CTRL_TYPE:STRING,POWER:DOUBLE,POWER_2:DOUBLE,POWED_VALUE:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--ERC7电控跳闸记录 e_event_erc7 -->
+            <businessDataitemIds>erc7</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC7</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,TOTAL_ID:BIGINT,TRIP_TURN:STRING,CTRL_TYPE:STRING,ELECTRIC_ENERGY:DOUBLE,ENERGY_VALUE:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--ERC8电表参数变更记录 e_event_erc8 -->
+            <businessDataitemIds>erc8</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC8</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,MPED_ID:BIGINT,CHANGE_SIGN:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--ERC9电流回路异常 e_event_erc9 -->
+            <businessDataitemIds>erc9</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC9</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,EXCEPTION_SIGN:STRING,UA_UAB:DOUBLE,UB:DOUBLE,UC_UCB:DOUBLE,IA:DOUBLE,IB:DOUBLE,IC:DOUBLE,PAP_R:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--ERC10电压回路异常 e_event_erc10 -->
+            <businessDataitemIds>erc10</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC10</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,EXCEPTION_SIGN:STRING,UA_UAB:DOUBLE,UB:DOUBLE,UC_UCB:DOUBLE,IA:DOUBLE,IB:DOUBLE,IC:DOUBLE,PAP_R:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--ERC11相序异常 e_event_erc11 -->
+            <businessDataitemIds>erc11</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC11</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,UA_UAB:DOUBLE,UB:DOUBLE,UC_UCB:DOUBLE,IA:DOUBLE,IB:DOUBLE,IC:DOUBLE,PAP_R:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--ERC12电能表时间超差 e_event_erc12 -->
+            <businessDataitemIds>erc12,31050200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC12_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,COMM_ADDR:STRING,REPORT_STATUS:STRING,END_TIME:TIMESTAMP,METER_TIME:TIMESTAMP,TMNL_TIME:TIMESTAMP,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--ERC13电表故障信息 e_event_erc13 -->
+            <businessDataitemIds>erc13</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC13</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,EXCEPTION_SIGN:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--终端停上电事件 e_event_erc14 -->
+            <businessDataitemIds>erc14,31060200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC14_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,RESTART_TIME:TIMESTAMP,NORMAL_FLAG:STRING,VALID_FLAG:STRING,PROTOCOL_TYPE:STRING,ON_OFF_TYPE:STRING,EVENT_REMARD:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- e_event_erc14 -->
+            <businessDataitemIds>erc14_checked_source</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC14_CHECKED_OTHER_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,AREA_CODE:STRING,TERMINAL_ADDR:STRING,EVENT_TIME:TIMESTAMP,RESTART_TIME:TIMESTAMP,NORMAL_FLAG:STRING,VALID_FLAG:STRING,PROTOCOL_TYPE:STRING,ON_OFF_TYPE:STRING,EVENT_REMARD:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--谐波越限告警 e_event_erc15 -->
+            <businessDataitemIds>erc15</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC15</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,EXCEPTION_SIGN:STRING,HARMONIC_SIGN:STRING,DISTORTION1:DOUBLE,DISTORTION2:DOUBLE,DISTORTION3:DOUBLE,DISTORTION4:DOUBLE,DISTORTION5:DOUBLE,DISTORTION6:DOUBLE,DISTORTION7:DOUBLE,DISTORTION8:DOUBLE,DISTORTION9:DOUBLE,DISTORTION10:DOUBLE,DISTORTION11:DOUBLE,DISTORTION12:DOUBLE,DISTORTION13:DOUBLE,DISTORTION14:DOUBLE,DISTORTION15:DOUBLE,DISTORTION16:DOUBLE,DISTORTION17:DOUBLE,DISTORTION18:DOUBLE,DISTORTION19:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--直流模拟量越限记录 e_event_erc16 -->
+            <businessDataitemIds>erc16</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC16</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,PORT_ID:BIGINT,LIMIT_SIGN:STRING,LIMIT_VALUE:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--电压电流不平衡记录 e_event_erc17 -->
+            <businessDataitemIds>erc17</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC17</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,EXCEPTION_SIGN:STRING,VOLTAGE_UNBALANCE:DOUBLE,CURRENT_IMBALANCE:DOUBLE,UA_UAB:DOUBLE,UB:DOUBLE,UC_UCB:DOUBLE,IA:DOUBLE,IB:DOUBLE,IC:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc18 -->
+            <businessDataitemIds>erc18</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC18</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,EXCEPTION_SIGN:STRING,GROUP_SIGN:STRING,POWER_FACTOR:DOUBLE,REACTIVE_POWER:DOUBLE,VOLTAGE:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc19 -->
+            <businessDataitemIds>erc19</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC19</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,TOTAL_ID:BIGINT,APP_NO:STRING,OPER_TYPE:STRING,ENERGY_VALUE:DOUBLE,ALARM_VALUE:DOUBLE,TRIP_VALUE:DOUBLE,BEFORE_VALUE:DOUBLE,AFTER_VALUE:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc20 -->
+            <businessDataitemIds>erc20</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC20</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,PW:STRING,MSA:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc21 -->
+            <businessDataitemIds>erc21</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC21</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,TER_ERR_CODE:BIGINT,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc22 -->
+            <businessDataitemIds>erc22</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC22</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,TOTAL_ID:BIGINT,COMP_ENERY:DOUBLE,CONSULT_ENERY:DOUBLE,REL_DEV:DOUBLE,ABS_DEV:DOUBLE,TOTAL_TYPE:STRING,MPED_ID:BIGINT,PAP_R:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc23 -->
+            <businessDataitemIds>erc23</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC23</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,TOTAL_ID:BIGINT,INPUT_TURN:STRING,CCONTROL_TYPE:STRING,ALARM_ENERY:DOUBLE,ALARM_VALUE:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc24 -->
+            <businessDataitemIds>erc24</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC24</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,LIMIT_SIGN:STRING,UA_UAB:DOUBLE,UB:DOUBLE,UC_UCB:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc25 -->
+            <businessDataitemIds>erc25</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC25</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,MPED_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,LIMIT_SIGN:STRING,IA:DOUBLE,IB:DOUBLE,IC:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc26 -->
+            <businessDataitemIds>erc26</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC26</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,LIMIT_SIGN:STRING,POWER:DOUBLE,POWER_VALUE:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc27 -->
+            <businessDataitemIds>erc27</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC27</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,BEFORE_PAP_R:DOUBLE,AFTER_PAP_R:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc28 -->
+            <businessDataitemIds>erc28</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC28</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,CORRESPOND_PAP_R:DOUBLE,PAP_R:DOUBLE,THESHOLD:DOUBLE,SHARD_NO:BIGINT,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc29 -->
+            <businessDataitemIds>erc29</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC29</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,BEFORE_PAP_R:DOUBLE,AFTER_PAP_R:DOUBLE,THESHOLD:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc30 -->
+            <businessDataitemIds>erc30</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC30</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,PAP_R:DOUBLE,THESHOLD:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc31 -->
+            <businessDataitemIds>erc31</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC31</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,LAST_SUCC_DATE:TIMESTAMP,LAST_SUCC_PAP_R:DOUBLE,LAST_SUCC_PRP_R:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc32 -->
+            <businessDataitemIds>erc32</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC32</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,MONTH_FLOW:DOUBLE,MONTH_LIMIT:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc33 -->
+            <businessDataitemIds>erc33</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC33</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,MPED_ID:BIGINT,CHANGE_STATUS1:STRING,CHANGE_STATUS2:STRING,CHANGE_STATUS3:STRING,CHANGE_STATUS4:STRING,CHANGE_STATUS5:STRING,CHANGE_STATUS6:STRING,CHANGE_STATUS7:STRING,STATUS1:STRING,STATUS2:STRING,STATUS3:STRING,STATUS4:STRING,STATUS5:STRING,STATUS6:STRING,STATUS7:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc34 -->
+            <businessDataitemIds>erc34</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC34</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BE_SIGN:STRING,MPED_ID:BIGINT,EXCEPTION_SIGN:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <!-- 搜表事件 -->
+        <SqlMapping>
+            <businessDataitemIds>erc35,31110200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_event_erc35_source</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,COMM_PORT:BIGINT,COMM_ADDR:STRING,METER_PHASE_SIGNAL:STRING,PROTOCOL:STRING,EVENT_INDEX:BIGINT,EVENT_END_TIME:TIMESTAMP,SEARCHED_TIME:TIMESTAMP,FMR_ADDR:STRING,COMM_PROTOCOL:STRING,MEMO:STRING,PHASE:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc36 -->
+            <businessDataitemIds>erc36</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC36</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,BEFORE_STATUS:STRING,AFTER_STATUS:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc37 -->
+            <businessDataitemIds>erc37</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC37</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,MPED_ID:BIGINT,BE_TIME:TIMESTAMP,EN_TIME:TIMESTAMP,BEFORE_PAP_R:DOUBLE,BEFORE_RAP_R:DOUBLE,BEFORE_1RP:DOUBLE,BEFORE_2RP:DOUBLE,BEFORE_3RP:DOUBLE,BEFORE_4RP:DOUBLE,AFTER_PAP_R:DOUBLE,AFTER_RAP_R:DOUBLE,AFTER_1RP:DOUBLE,AFTER_2RP:DOUBLE,AFTER_3RP:DOUBLE,AFTER_4RP:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc38 -->
+            <businessDataitemIds>erc38</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC38</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,MPED_ID:BIGINT,BE_TIME:TIMESTAMP,EN_TIME:TIMESTAMP,BEFORE_PAP_R:DOUBLE,BEFORE_RAP_R:DOUBLE,BEFORE_1RP:DOUBLE,BEFORE_2RP:DOUBLE,BEFORE_3RP:DOUBLE,BEFORE_4RP:DOUBLE,AFTER_PAP_R:DOUBLE,AFTER_RAP_R:DOUBLE,AFTER_1RP:DOUBLE,AFTER_2RP:DOUBLE,AFTER_3RP:DOUBLE,AFTER_4RP:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc39 -->
+            <businessDataitemIds>erc39</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC39</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,MPED_ID:BIGINT,LAST_TIME:TIMESTAMP,PAP_R:DOUBLE,PRP_R:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc40 -->
+            <businessDataitemIds>erc40</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC40</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,MPED_ID:BIGINT,BE_SIGN:STRING,DEVICE_TYPE:STRING,DEVICE_ADDR:STRING,EXCEPTION_TYPE:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc41 -->
+            <businessDataitemIds>erc41</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC41</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,MPED_ID:BIGINT,BEFORE_TIME:TIMESTAMP,AFTER_TIME:TIMESTAMP,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc45 -->
+            <businessDataitemIds>erc45</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC45</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_event_erc53 -->
+            <businessDataitemIds>erc53</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_ERC53_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>3</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,MPED_INDEX:BIGINT,A_CUR_VALUE:DOUBLE,B_CUR_VALUE:DOUBLE,C_CUR_VALUE:DOUBLE,TA_TEMP:DOUBLE,A_OHM_VALUE_I:DOUBLE,A_ANGLE_VALUE_I:DOUBLE,A_RATE_VALUE_I:DOUBLE,B_OHM_VALUE_I:DOUBLE,B_ANGLE_VALUE_I:DOUBLE,B_RATE_VALUE_I:DOUBLE,C_OHM_VALUE_I:DOUBLE,C_ANGLE_VALUE_I:DOUBLE,C_RATE_VALUE_I:DOUBLE,A_OHM_VALUE_II:DOUBLE,A_ANGLE_VALUE_II:DOUBLE,A_RATE_VALUE_II:DOUBLE,B_OHM_VALUE_II:DOUBLE,B_ANGLE_VALUE_II:DOUBLE,B_RATE_VALUE_II:DOUBLE,C_OHM_VALUE_II:DOUBLE,C_ANGLE_VALUE_II:DOUBLE,C_RATE_VALUE_II:DOUBLE,A_OHM_VALUE_III:DOUBLE,A_ANGLE_VALUE_III:DOUBLE,A_RATE_VALUE_III:DOUBLE,B_OHM_VALUE_III:DOUBLE,B_ANGLE_VALUE_III:DOUBLE,B_RATE_VALUE_III:DOUBLE,C_OHM_VALUE_III:DOUBLE,C_ANGLE_VALUE_III:DOUBLE,C_RATE_VALUE_III:DOUBLE,A_CUR_VALUE2:DOUBLE,B_CUR_VALUE2:DOUBLE,C_CUR_VALUE2:DOUBLE,TA_TEMP2:DOUBLE,A_OHM_VALUE_I2:DOUBLE,A_ANGLE_VALUE_I2:DOUBLE,A_RATE_VALUE_I2:DOUBLE,B_OHM_VALUE_I2:DOUBLE,B_ANGLE_VALUE_I2:DOUBLE,B_RATE_VALUE_I2:DOUBLE,C_OHM_VALUE_I2:DOUBLE,C_ANGLE_VALUE_I2:DOUBLE,C_RATE_VALUE_I2:DOUBLE,A_OHM_VALUE_II2:DOUBLE,A_ANGLE_VALUE_II2:DOUBLE,A_RATE_VALUE_II2:DOUBLE,B_OHM_VALUE_II2:DOUBLE,B_ANGLE_VALUE_II2:DOUBLE,B_RATE_VALUE_II2:DOUBLE,C_OHM_VALUE_II2:DOUBLE,C_ANGLE_VALUE_II2:DOUBLE,C_RATE_VALUE_II2:DOUBLE,A_OHM_VALUE_III2:DOUBLE,A_ANGLE_VALUE_III2:DOUBLE,A_RATE_VALUE_III2:DOUBLE,B_OHM_VALUE_III2:DOUBLE,B_ANGLE_VALUE_III2:DOUBLE,B_RATE_VALUE_III2:DOUBLE,C_OHM_VALUE_III2:DOUBLE,C_ANGLE_VALUE_III2:DOUBLE,C_RATE_VALUE_III2:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+
+        <!-- *****************终端事件-结束******************* -->
+
+
+        <SqlMapping>
+            <!-- 终端电能表/交流采样装置配置参数 -->
+            <businessDataitemIds>124001,1601001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_TMNL_PARA_04010_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                TERMINAL_ID:BIGINT,METER_INDEX:BIGINT,MPED_INDEX:BIGINT,BAUD:STRING,PORT_NO:BIGINT,PROTOCOL_ID:BIGINT,COMM_ADDR:STRING,PASSWORD:STRING,RATE_NUM:BIGINT,INT_NUM:BIGINT,DEC_NUM:BIGINT,COLLECTOR_ADDR:STRING,USERFLAG:STRING,SMALLFLAG:STRING,INSERT_TIME:BIGINT,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <!-- *****************水气热多表合一类-开始******************* -->
+        <SqlMapping>
+            <!-- 日冻结水表读数 -->
+            <businessDataitemIds>241001_WATER</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>BP_E_WATER_DAY_R_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COLL_TIME:TIMESTAMP,REAL_SUM_FLOW:DOUBLE,SETTLE_DAY_SUM_FLOW:DOUBLE,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日冻结燃气表读数 -->
+            <businessDataitemIds>241001_GAS</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>BP_E_GAS_DAY_R_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COLL_TIME:TIMESTAMP,REAL_SUM_FLOW:DOUBLE,SETTLE_DAY_SUM_FLOW:DOUBLE,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 日冻结热力表读数 -->
+            <businessDataitemIds>241001_HEAT</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>BP_E_HEAT_DAY_R_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COLL_TIME:TIMESTAMP,REAL_HEAT:DOUBLE,SETTLE_DAY_HEAT:DOUBLE,HEAT_POWER:DOUBLE,FLOW:DOUBLE,SUM_FLOW:DOUBLE,SUPPLY_WATER_TMPER:DOUBLE,BACK_WATER_TMPER:DOUBLE,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- *****************水气热多表合一类-日月数据分割线******************* -->
+        <SqlMapping>
+            <!-- 月冻结水表读数 -->
+            <businessDataitemIds>242001_WATER</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>BP_E_WATER_MONTH_R_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COLL_TIME:TIMESTAMP,REAL_SUM_FLOW:DOUBLE,SETTLE_DAY_SUM_FLOW:DOUBLE,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 月冻结燃气表读数 -->
+            <businessDataitemIds>242001_GAS</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>BP_E_GAS_MONTH_R_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COLL_TIME:TIMESTAMP,REAL_SUM_FLOW:DOUBLE,SETTLE_DAY_SUM_FLOW:DOUBLE,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 月冻结热力表读数 -->
+            <businessDataitemIds>242001_HEAT</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>BP_E_HEAT_MONTH_R_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COLL_TIME:TIMESTAMP,REAL_HEAT:DOUBLE,SETTLE_DAY_HEAT:DOUBLE,HEAT_POWER:DOUBLE,FLOW:DOUBLE,SUM_FLOW:DOUBLE,SUPPLY_WATER_TMPER:DOUBLE,BACK_WATER_TMPER:DOUBLE,INSERT_TIME:TIMESTAMP,DATA_SRC:STRING,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- *****************水气热多表合一类-结束******************* -->
+        <!-- *****************报文监控-开始******************* -->
+        <SqlMapping>
+            <!-- 报文监控信息 -->
+            <businessDataitemIds>monitor</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>R_TMNL_MESSAGE_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                TERMINAL_ADDR:STRING,AREA_CODE:BIGINT,DIRECT_FLAG:STRING,MESSAGE_TIME:TIMESTAMP,MESSAGE_DETAIL:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- *****************报文监控-结束******************* -->
+
+        <SqlMapping>
+            <!--终端版本信息 r_tmnl_versions -->
+            <businessDataitemIds>207001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>R_TMNL_VERSIONS_source</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                TERMINAL_ID:BIGINT,FAC_CODE:STRING,ASSET_NO:STRING,SOFT_VER:STRING,HARD_VER:STRING,SOFT_DATE:TIMESTAMP,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <businessDataitemIds>204031</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_TMNL_BATTERY_STATUS_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                TERMINAL_ID:BIGINT,DATA_DATE:STRING,ORG_NO:STRING,STATUS:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--终端实时时钟信息 e_tmnl_real_time -->
+            <businessDataitemIds>204016</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_TMNL_REAL_TIME_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                TERMINAL_ID:BIGINT,AREA_CODE:BIGINT,TERMINAL_ADDR:STRING,T_TIME:TIMESTAMP,M_TIME:TIMESTAMP,OVER_TIME:DOUBLE,CON_TIME_NUM:BIGINT,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--终端时钟操作日志 r_abnormal_time_source -->
+            <businessDataitemIds>144012</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>R_ABNORMAL_TIME_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:STRING,AREA_CODE:STRING,TERMINAL_ADDR:STRING,T_TIME:TIMESTAMP,M_TIME:TIMESTAMP,STATE:STRING,SET_TYPE:STRING,TIME_TYPE:STRING,OPER_NAME:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- *****************电表时钟-开始******************* -->
+        <SqlMapping>
+            <businessDataitemIds>60901,60902,60903</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_TIME_09_SOURCE</topicName>
+            <shardCount>100</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                DATA_DATE:STRING,MPED_ID:BIGINT,SET_TIME:STRING,COLL_TIME:TIMESTAMP,TIME_TYPE:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- *****************电表时钟-结束******************* -->
+
+        <!-- *****************JJT-begin******************* -->
+        <SqlMapping>
+            <!-- e_pump_consume_det -->
+            <businessDataitemIds>149001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_PUMP_CONSUME_DET_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                COLLECT_DATE:STRING,TERMINAL_NO:STRING,TERMINAL_ID:BIGINT,CONSUME_INDX:BIGINT,DET_TYPE:STRING,PUMP_NO:STRING,CARD_NO:STRING,BEGIN_TIME:TIMESTAMP,END_TIME:TIMESTAMP,BEGIN_REMAIN_AMT:STRING,END_REMAIN_AMT:STRING,LAST_MR_NUM:STRING,THIS_MR_NUM:STRING,LAST_UPQ_CONS:DOUBLE,LAST_WATER_LEVEL:STRING,LAST_UPQ_BEGIN:DOUBLE,LAST_UPQ_END:DOUBLE,IS_TS:BIGINT,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_pump_consume_det_pro -->
+            <businessDataitemIds>149001_pro</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_PUMP_CONSUME_DET_PRO_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                COLLECT_DATE:STRING,TERMINAL_NO:STRING,TERMINAL_ID:BIGINT,CONSUME_INDX:BIGINT,DET_TYPE:STRING,PUMP_NO:STRING,CARD_NO:STRING,BEGIN_TIME:TIMESTAMP,END_TIME:TIMESTAMP,BEGIN_REMAIN_AMT:STRING,END_REMAIN_AMT:STRING,LAST_MR_NUM:STRING,THIS_MR_NUM:STRING,IS_SEND:BIGINT,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- e_pump_consume_uncalc -->
+            <businessDataitemIds>149002</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_PUMP_CONSUME_UNCALC_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                COLLECT_DATE:STRING,TERMINAL_ID:BIGINT,TERMINAL_NO:STRING,CONSUME_INDX:BIGINT,CARD_NO:STRING,LAST_AMT:STRING,END_GTAC:STRING,LAST_GMAC:STRING,THIS_SAMTAC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- e_pump_consume_execption -->
+            <businessDataitemIds>149003</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_PUMP_CONSUME_EXCEPTION_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                COLLECT_DATE:STRING,TERMINAL_ID:BIGINT,TERMINAL_NO:STRING,CONSUME_INDX:BIGINT,PUMP_NO:STRING,BEGIN_TIME:TIMESTAMP,END_TIME:TIMESTAMP,LAST_MR_NUM:STRING,THIS_MR_NUM:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- e_pump_consume_fault -->
+            <businessDataitemIds>149004</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_PUMP_CONSUME_FAULT_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                COLLECT_DATE:STRING,TERMINAL_NO:STRING,TERMINAL_ID:BIGINT,CONSUME_INDX:BIGINT,DET_TYPE:STRING,PUMP_NO:STRING,CARD_NO:STRING,FAULT_REASON:STRING,BEGIN_TIME:TIMESTAMP,FAULT_TIME:TIMESTAMP,LAST_MR_NUM:STRING,THIS_MR_NUM:STRING,LAST_ENERGY:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- e_pump_consume_sn -->
+            <businessDataitemIds>210003</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_PUMP_CONSUME_SN_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                TERMINAL_ID:BIGINT,AREA_CODE:BIGINT,TERMINAL_ADDR:STRING,DATA_TYPE:STRING,CONSUME_INDX:BIGINT,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- *****************JJT-end******************* -->
+        <SqlMapping>
+            <!-- A相电压 -->
+            <businessDataitemIds>70201,70202,70203,70204</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EDC_CONS_VOLT_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,PHASE_FLAG:STRING,ORG_NO:STRING,U_VALUE:DOUBLE,POINT_TIME:TIMESTAMP,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <businessDataitemIds>qzbw</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>qz_645_day_real_monitor</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                area_code:STRING,terminal_addr:STRING,meter_addr:STRING,R:DOUBLE,R_J:DOUBLE,R_F:DOUBLE,R_P:DOUBLE,R_G:DOUBLE,BW_STR:STRING,DATAITEMID:STRING,DATATIME:TIMESTAMP,DATA_TYPE:STRING,INSERT_TIME:TIMESTAMP,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <!--  <SqlMapping>
+              电能表开表盖事件 e_meter_event_open_lid
+            <businessDataitemIds>03300D01,03300D02,03300D03,03300D04,03300D05,03300D06,03300D07,03300D08,03300D09,03300D0A,301B0200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_OPEN_LID_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,BEFORE_PAP_R:DOUBLE,BEFORE_RAP_R:DOUBLE,BEFORE_QUAD_1_R:DOUBLE,BEFORE_QUAD_2_R:DOUBLE,BEFORE_QUAD_3_R:DOUBLE,BEFORE_QUAD_4_R:DOUBLE,AFTER_PAP_R:DOUBLE,AFTER_RAP_R:DOUBLE,AFTER_QUAD_1_R:DOUBLE,AFTER_QUAD_2_R:DOUBLE,AFTER_QUAD_3_R:DOUBLE,AFTER_QUAD_4_R:DOUBLE,SORT_NO:BIGINT,EXTEN_INFO:STRING,SHARD_NO:STRING
+            </fields>
+        </SqlMapping> -->
+        <!-- 风光路 start -->
+
+        <SqlMapping>
+            <!-- A相电流 零线电流-->
+            <businessDataitemIds>70301,70302,70303,70304,70305</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EDC_CONS_CUR_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,PHASE_FLAG:STRING,ORG_NO:STRING,I_VALUE:DOUBLE,POINT_TIME:TIMESTAMP,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--瞬时有功功率 -->
+            <businessDataitemIds>70405,70406,70407,70408</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EDC_CONS_POWER_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,DATA_TYPE:STRING,ORG_NO:STRING,P_VALUE:DOUBLE,POINT_TIME:TIMESTAMP,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--A相相角 02070100,02070200,02070300 -->
+            <businessDataitemIds>70501,70502,70503</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EDC_CONS_PHASE_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,PHASE_FLAG:STRING,ORG_NO:STRING,I_VALUE:DOUBLE,POINT_TIME:TIMESTAMP,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--功率因数 02060000,02060100,02060200,02060300 -->
+            <businessDataitemIds>71401,71402,71403,71404</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EDC_CONS_FACTOR_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,PHASE_FLAG:STRING,ORG_NO:STRING,C_VALUE:DOUBLE,POINT_TIME:TIMESTAMP,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!-- 开盖次数 -->
+            <businessDataitemIds>03300D00</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EDC_CONS_OPENLID_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,ORG_NO:STRING,C_VALUE:DOUBLE,POINT_TIME:TIMESTAMP,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <!-- 风光路 end -->
+        <!-- *****************电表全事件-开始******************* -->
+        <SqlMapping>
+            <!--电能表周休日编程事件记录 -->
+            <businessDataitemIds>03300701</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_WEEKDAY_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表密钥更新事件记录 -->
+            <businessDataitemIds>03301201</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_ESAM_KEY_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表异常插卡事件记录 -->
+            <businessDataitemIds>null</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_INSERT_CARD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表无功组合方式1/2编程事件记录 e_meter_event_rq_group_pro -->
+            <businessDataitemIds>03300A01,03300B01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_RQ_GROUP_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表时区表编程事件记录 e_meter_event_tzone_pro -->
+            <businessDataitemIds>03300601</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_TZONE_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表时段表编程事件记录 e_meter_event_tframe_pro -->
+            <businessDataitemIds>03300501</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_TFRAME_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--电能表时钟故障事件记录 e_meter_event_clock_fault -->
+            <businessDataitemIds>null</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_CLOCK_FAULT_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--电能表有功组合方式编程事件记录 e_meter_event_ap_group_pro -->
+            <businessDataitemIds>03300901</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_AP_GROUP_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+        <SqlMapping>
+            <!--电能表电流不平衡事件记录 e_meter_event_cur_unbalance -->
+            <businessDataitemIds>1700FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_CUR_UNBALANCE_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表电流严重不平衡事件记录 e_meter_event_cur_high_unbalan -->
+            <businessDataitemIds>2000FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_CUR_HIGH_UNBALAN_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表电流逆相序事件记录 e_meter_event_i_reve_phase -->
+            <businessDataitemIds>1500FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_I_REVE_PHASE_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表结算日编程事件记录 e_meter_event_settleday_pro -->
+            <businessDataitemIds>03300C01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_SETTLEDAY_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表节假日编程事件记录 e_meter_event_holiday_pro -->
+            <businessDataitemIds>03300801</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_HOLIDAY_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表计量芯片故障事件记录 e_meter_event_measure_chip -->
+            <businessDataitemIds>null</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_MEASURE_CHIP_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表购电记录 e_meter_event_buy_energy -->
+            <businessDataitemIds>null</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_BUY_ENERGY_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表费率参数表编程事件记录 e_meter_event_rate_pro -->
+            <businessDataitemIds>03300F01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_RATE_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表退费记录 e_meter_event_back_fee -->
+            <businessDataitemIds>03340001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_BACK_FEE_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表阶梯表编程事件记录 e_meter_event_stair_pro -->
+            <businessDataitemIds>03301001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_STAIR_PRO_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表事件清零 e_meter_event_clear_event -->
+            <businessDataitemIds>03300301</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_CLEAR_EVENT_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,REPORT_OR_COLL:BIGINT,COLL_TIME:TIMESTAMP,EVENT_ST:TIMESTAMP,OP_CODE:BIGINT,EVENT_FLAG:STRING,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表停电事件 e_mter_event_no_power_source -->
+            <businessDataitemIds>
+                03110001,71007,03110002,71038,03110003,71039,03110004,03110005,03110006,03110007,03110008,03110009,0311000A,30110200,71040,,71041,71042,71043,71044,71045,71046
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_NO_POWER_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_TYPE:STRING,NO_POWER_SD:TIMESTAMP,NO_POWER_ED:TIMESTAMP,SHARD_NO:STRING,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表全失压事件 e_meter_event_all_vol_lose -->
+            <businessDataitemIds>03050001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_ALL_VOL_LOSE_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,CURR_VAL:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表功率因数越下限事件记录 e_meter_event_fact_lower_limit -->
+            <businessDataitemIds>1F00FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_FACT_LOWER_LIMIT_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,COLL_TIME:TIMESTAMP,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表反向有功需量越限记录 e_meter_event_rap_demd_over_li -->
+            <businessDataitemIds>03120201</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_RAP_DEMD_OVER_LI_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表合闸事件 e_meter_event_switch_on -->
+            <businessDataitemIds>1E00FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_SWITCH_ON_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,COLL_TIME:TIMESTAMP,EVENT_ST:TIMESTAMP,OP_CODE:BIGINT,PAP_R:DOUBLE,RAP_R:DOUBLE,QUAD_1_R:DOUBLE,QUAD_2_R:DOUBLE,QUAD_3_R:DOUBLE,QUAD_4_R:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表失压事件 e_meter_event_lose_vol -->
+            <businessDataitemIds>1001FF01,1002FF01,1003FF01
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_LOSE_VOL_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,PHASE_FLAG:BIGINT,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_U_A:DOUBLE,ST_I_A:DOUBLE,ST_P_A:DOUBLE,ST_Q_A:DOUBLE,ST_F_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_U_B:DOUBLE,ST_I_B:DOUBLE,ST_P_B:DOUBLE,ST_Q_B:DOUBLE,ST_F_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,ST_U_C:DOUBLE,ST_I_C:DOUBLE,ST_P_C:DOUBLE,ST_Q_C:DOUBLE,ST_F_C:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,EN_GRP_1_R:DOUBLE,EN_GRP_2_R:DOUBLE,EN_PAP_R_A:DOUBLE,EN_RAP_R_A:DOUBLE,EN_GRP_1_R_A:DOUBLE,EN_GRP_2_R_A:DOUBLE,EN_PAP_R_B:DOUBLE,EN_RAP_R_B:DOUBLE,EN_GRP_1_R_B:DOUBLE,EN_GRP_2_R_B:DOUBLE,EN_PAP_R_C:DOUBLE,EN_RAP_R_C:DOUBLE,EN_GRP_1_R_C:DOUBLE,EN_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表失流事件 e_meter_event_lose_curr -->
+            <businessDataitemIds>1801FF01,1802FF01,1803FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_LOSE_CURR_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,PHASE_FLAG:BIGINT,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_U_A:DOUBLE,ST_I_A:DOUBLE,ST_P_A:DOUBLE,ST_Q_A:DOUBLE,ST_F_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_U_B:DOUBLE,ST_I_B:DOUBLE,ST_P_B:DOUBLE,ST_Q_B:DOUBLE,ST_F_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,ST_U_C:DOUBLE,ST_I_C:DOUBLE,ST_P_C:DOUBLE,ST_Q_C:DOUBLE,ST_F_C:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,EN_GRP_1_R:DOUBLE,EN_GRP_2_R:DOUBLE,EN_PAP_R_A:DOUBLE,EN_RAP_R_A:DOUBLE,EN_GRP_1_R_A:DOUBLE,EN_GRP_2_R_A:DOUBLE,EN_PAP_R_B:DOUBLE,EN_RAP_R_B:DOUBLE,EN_GRP_1_R_B:DOUBLE,EN_GRP_2_R_B:DOUBLE,EN_PAP_R_C:DOUBLE,EN_RAP_R_C:DOUBLE,EN_GRP_1_R_C:DOUBLE,EN_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表开端钮盖事件 e_meter_event_open_term_lid -->
+            <businessDataitemIds>03300E01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_OPEN_TERM_LID_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,BEFORE_PAP_R:DOUBLE,BEFORE_RAP_R:DOUBLE,BEFORE_QUAD_1_R:DOUBLE,BEFORE_QUAD_2_R:DOUBLE,BEFORE_QUAD_3_R:DOUBLE,BEFORE_QUAD_4_R:DOUBLE,AFTER_PAP_R:DOUBLE,AFTER_RAP_R:DOUBLE,AFTER_QUAD_1_R:DOUBLE,AFTER_QUAD_2_R:DOUBLE,AFTER_QUAD_3_R:DOUBLE,AFTER_QUAD_4_R:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--电能表开表盖事件 e_meter_event_open_lid -->
+            <businessDataitemIds>
+                03300D01,03300D02,03300D03,03300D04,03300D05,03300D06,03300D07,03300D08,03300D09,03300D0A,301B0200
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_OPEN_LID_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,BEFORE_PAP_R:DOUBLE,BEFORE_RAP_R:DOUBLE,BEFORE_QUAD_1_R:DOUBLE,BEFORE_QUAD_2_R:DOUBLE,BEFORE_QUAD_3_R:DOUBLE,BEFORE_QUAD_4_R:DOUBLE,AFTER_PAP_R:DOUBLE,AFTER_RAP_R:DOUBLE,AFTER_QUAD_1_R:DOUBLE,AFTER_QUAD_2_R:DOUBLE,AFTER_QUAD_3_R:DOUBLE,AFTER_QUAD_4_R:DOUBLE,SORT_NO:BIGINT,EXTEN_INFO:STRING,SHARD_NO:STRING,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表恒定磁场干扰事件记录 -->
+            <businessDataitemIds>03350001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_MAG_INTERF_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,ORG_NO:STRING,INPUT_TIME:TIMESTAMP,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,SHARD_NO:STRING,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表断流事件记录 -->
+            <businessDataitemIds>1A01FF01,1A02FF01,1A03FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_NO_CURR_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,PHASE_FLAG:BIGINT,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表断相事件记录 -->
+            <businessDataitemIds>1301FF01,1302FF01,1303FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_VOL_BREAK_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,PHASE_FLAG:BIGINT,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_U_A:DOUBLE,ST_I_A:DOUBLE,ST_P_A:DOUBLE,ST_Q_A:DOUBLE,ST_F_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_U_B:DOUBLE,ST_I_B:DOUBLE,ST_P_B:DOUBLE,ST_Q_B:DOUBLE,ST_F_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,ST_U_C:DOUBLE,ST_I_C:DOUBLE,ST_P_C:DOUBLE,ST_Q_C:DOUBLE,ST_F_C:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,EN_GRP_1_R:DOUBLE,EN_GRP_2_R:DOUBLE,EN_PAP_R_A:DOUBLE,EN_RAP_R_A:DOUBLE,EN_GRP_1_R_A:DOUBLE,EN_GRP_2_R_A:DOUBLE,EN_PAP_R_B:DOUBLE,EN_RAP_R_B:DOUBLE,EN_GRP_1_R_B:DOUBLE,EN_GRP_2_R_B:DOUBLE,EN_PAP_R_C:DOUBLE,EN_RAP_R_C:DOUBLE,EN_GRP_1_R_C:DOUBLE,EN_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表无功需量越限记录 -->
+            <businessDataitemIds>03300201</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_RQ_DEMD_OVER_LIM_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表有功功率反向事件记录 -->
+            <businessDataitemIds>1B01FF01,1B02FF01,1B03FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_P_RETURN_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,PHASE_FLAG:BIGINT,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,EN_GRP_1_R:DOUBLE,EN_GRP_2_R:DOUBLE,EN_PAP_R_A:DOUBLE,EN_RAP_R_A:DOUBLE,EN_GRP_1_R_A:DOUBLE,EN_GRP_2_R_A:DOUBLE,EN_PAP_R_B:DOUBLE,EN_RAP_R_B:DOUBLE,EN_GRP_1_R_B:DOUBLE,EN_GRP_2_R_B:DOUBLE,EN_PAP_R_C:DOUBLE,EN_RAP_R_C:DOUBLE,EN_GRP_1_R_C:DOUBLE,EN_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表校时事件记录 -->
+            <businessDataitemIds>03300401</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_CHEK_TIME_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,BEFORE_CHECK_TIME:TIMESTAMP,AFTER_CHECK_TIME:TIMESTAMP,OP_CODE:BIGINT,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表欠压事件记录 -->
+            <businessDataitemIds>1101FF01,1102FF01,1103FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_LOW_VOL_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,PHASE_FLAG:BIGINT,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_U_A:DOUBLE,ST_I_A:DOUBLE,ST_P_A:DOUBLE,ST_Q_A:DOUBLE,ST_F_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_U_B:DOUBLE,ST_I_B:DOUBLE,ST_P_B:DOUBLE,ST_Q_B:DOUBLE,ST_F_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,ST_U_C:DOUBLE,ST_I_C:DOUBLE,ST_P_C:DOUBLE,ST_Q_C:DOUBLE,ST_F_C:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,EN_GRP_1_R:DOUBLE,EN_GRP_2_R:DOUBLE,EN_PAP_R_A:DOUBLE,EN_RAP_R_A:DOUBLE,EN_GRP_1_R_A:DOUBLE,EN_GRP_2_R_A:DOUBLE,EN_PAP_R_B:DOUBLE,EN_RAP_R_B:DOUBLE,EN_GRP_1_R_B:DOUBLE,EN_GRP_2_R_B:DOUBLE,EN_PAP_R_C:DOUBLE,EN_RAP_R_C:DOUBLE,EN_GRP_1_R_C:DOUBLE,EN_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表正有功需量越限记录 -->
+            <businessDataitemIds>03120101,03120201,03120301,03120401,03120501,03120601
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_PAP_DEMD_OVER_LI_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表清零事件记录记录 -->
+            <businessDataitemIds>03300101</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_CLEAR_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,OP_CODE:BIGINT,BEFORE_PAP_R:DOUBLE,BEFORE_RAP_R:DOUBLE,BEFORE_QUAD_1_R:DOUBLE,BEFORE_QUAD_2_R:DOUBLE,BEFORE_QUAD_3_R:DOUBLE,BEFORE_QUAD_4_R:DOUBLE,BEFORE_PAP_R_A:DOUBLE,BEFORE_RAP_R_A:DOUBLE,BEFORE_QUAD_1_R_A:DOUBLE,BEFORE_QUAD_2_R_A:DOUBLE,BEFORE_QUAD_3_R_A:DOUBLE,BEFORE_QUAD_4_R_A:DOUBLE,BEFORE_PAP_R_B:DOUBLE,BEFORE_RAP_R_B:DOUBLE,BEFORE_QUAD_1_R_B:DOUBLE,BEFORE_QUAD_2_R_B:DOUBLE,BEFORE_QUAD_3_R_B:DOUBLE,BEFORE_QUAD_4_R_B:DOUBLE,BEFORE_PAP_R_C:DOUBLE,BEFORE_RAP_R_C:DOUBLE,BEFORE_QUAD_1_R_C:DOUBLE,BEFORE_QUAD_2_R_C:DOUBLE,BEFORE_QUAD_3_R_C:DOUBLE,BEFORE_QUAD_4_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表潮流反向事件记录 -->
+            <businessDataitemIds>21000001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_CURR_RETURN_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表电压不平衡事件记录 -->
+            <businessDataitemIds>1600FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_VOL_UNBALANCE_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,MAX_UNBALANCE_RATE:DOUBLE,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_U_A:DOUBLE,ST_I_A:DOUBLE,ST_P_A:DOUBLE,ST_Q_A:DOUBLE,ST_F_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_U_B:DOUBLE,ST_I_B:DOUBLE,ST_P_B:DOUBLE,ST_Q_B:DOUBLE,ST_F_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,ST_U_C:DOUBLE,ST_I_C:DOUBLE,ST_P_C:DOUBLE,ST_Q_C:DOUBLE,ST_F_C:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,EN_GRP_1_R:DOUBLE,EN_GRP_2_R:DOUBLE,EN_PAP_R_A:DOUBLE,EN_RAP_R_A:DOUBLE,EN_GRP_1_R_A:DOUBLE,EN_GRP_2_R_A:DOUBLE,EN_PAP_R_B:DOUBLE,EN_RAP_R_B:DOUBLE,EN_GRP_1_R_B:DOUBLE,EN_GRP_2_R_B:DOUBLE,EN_PAP_R_C:DOUBLE,EN_RAP_R_C:DOUBLE,EN_GRP_1_R_C:DOUBLE,EN_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表电压逆相序事件记录 -->
+            <businessDataitemIds>1400FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_REVE_PHASE_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,EN_GRP_1_R:DOUBLE,EN_GRP_2_R:DOUBLE,EN_PAP_R_A:DOUBLE,EN_RAP_R_A:DOUBLE,EN_GRP_1_R_A:DOUBLE,EN_GRP_2_R_A:DOUBLE,EN_PAP_R_B:DOUBLE,EN_RAP_R_B:DOUBLE,EN_GRP_1_R_B:DOUBLE,EN_GRP_2_R_B:DOUBLE,EN_PAP_R_C:DOUBLE,EN_RAP_R_C:DOUBLE,EN_GRP_1_R_C:DOUBLE,EN_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表电源异常事件记录 -->
+            <businessDataitemIds>03370001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_POWER_ABN_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表编程事件记录 -->
+            <businessDataitemIds>03300001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_PROGRAM_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,OP_CODE:BIGINT,DATA_TAG_1:BIGINT,DATA_TAG_2:BIGINT,DATA_TAG_3:BIGINT,DATA_TAG_4:BIGINT,DATA_TAG_5:BIGINT,DATA_TAG_6:BIGINT,DATA_TAG_7:BIGINT,DATA_TAG_8:BIGINT,DATA_TAG_9:BIGINT,DATA_TAG_10:BIGINT,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表负荷开关误动拒动 -->
+            <businessDataitemIds>03360001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_SWITCH_ERR_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,AFTER_STATE:STRING,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表负荷过载事件记录 -->
+            <businessDataitemIds>1C01FF01,1C02FF01,1C03FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_OVER_LOAD_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,PHASE_FLAG:BIGINT,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表跳闸事件记录 -->
+            <businessDataitemIds>1D00FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_TRIP_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,OP_CODE:BIGINT,PAP_R:DOUBLE,RAP_R:DOUBLE,QUAD_1_R:DOUBLE,QUAD_2_R:DOUBLE,QUAD_3_R:DOUBLE,QUAD_4_R:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表辅助电源掉电事件记录 -->
+            <businessDataitemIds>03060001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_ASSI_POWER_SHUT_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表过压事件记录 -->
+            <businessDataitemIds>1201FF01,1202FF01,1203FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_OVER_VOL_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,PHASE_FLAG:BIGINT,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_U_A:DOUBLE,ST_I_A:DOUBLE,ST_P_A:DOUBLE,ST_Q_A:DOUBLE,ST_F_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_U_B:DOUBLE,ST_I_B:DOUBLE,ST_P_B:DOUBLE,ST_Q_B:DOUBLE,ST_F_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,ST_U_C:DOUBLE,ST_I_C:DOUBLE,ST_P_C:DOUBLE,ST_Q_C:DOUBLE,ST_F_C:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,EN_GRP_1_R:DOUBLE,EN_GRP_2_R:DOUBLE,EN_PAP_R_A:DOUBLE,EN_RAP_R_A:DOUBLE,EN_GRP_1_R_A:DOUBLE,EN_GRP_2_R_A:DOUBLE,EN_PAP_R_B:DOUBLE,EN_RAP_R_B:DOUBLE,EN_GRP_1_R_B:DOUBLE,EN_GRP_2_R_B:DOUBLE,EN_PAP_R_C:DOUBLE,EN_RAP_R_C:DOUBLE,EN_GRP_1_R_C:DOUBLE,EN_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表过流事件记录 -->
+            <businessDataitemIds>1901FF01,1902FF01,1903FF01</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_OVER_I_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,PHASE_FLAG:BIGINT,EVENT_ST:TIMESTAMP,EVENT_ET:TIMESTAMP,ST_PAP_R:DOUBLE,ST_RAP_R:DOUBLE,ST_GRP_1_R:DOUBLE,ST_GRP_2_R:DOUBLE,ST_PAP_R_A:DOUBLE,ST_RAP_R_A:DOUBLE,ST_GRP_1_R_A:DOUBLE,ST_GRP_2_R_A:DOUBLE,ST_U_A:DOUBLE,ST_I_A:DOUBLE,ST_P_A:DOUBLE,ST_Q_A:DOUBLE,ST_F_A:DOUBLE,ST_PAP_R_B:DOUBLE,ST_RAP_R_B:DOUBLE,ST_GRP_1_R_B:DOUBLE,ST_GRP_2_R_B:DOUBLE,ST_U_B:DOUBLE,ST_I_B:DOUBLE,ST_P_B:DOUBLE,ST_Q_B:DOUBLE,ST_F_B:DOUBLE,ST_PAP_R_C:DOUBLE,ST_RAP_R_C:DOUBLE,ST_GRP_1_R_C:DOUBLE,ST_GRP_2_R_C:DOUBLE,ST_U_C:DOUBLE,ST_I_C:DOUBLE,ST_P_C:DOUBLE,ST_Q_C:DOUBLE,ST_F_C:DOUBLE,EN_PAP_R:DOUBLE,EN_RAP_R:DOUBLE,EN_GRP_1_R:DOUBLE,EN_GRP_2_R:DOUBLE,EN_PAP_R_A:DOUBLE,EN_RAP_R_A:DOUBLE,EN_GRP_1_R_A:DOUBLE,EN_GRP_2_R_A:DOUBLE,EN_PAP_R_B:DOUBLE,EN_RAP_R_B:DOUBLE,EN_GRP_1_R_B:DOUBLE,EN_GRP_2_R_B:DOUBLE,EN_PAP_R_C:DOUBLE,EN_RAP_R_C:DOUBLE,EN_GRP_1_R_C:DOUBLE,EN_GRP_2_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 电能表需量清零事件 -->
+            <businessDataitemIds>03300201</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_EVENT_CLEAR_DEMAND_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,INPUT_TIME:TIMESTAMP,ORG_NO:STRING,ID:BIGINT,EVENT_ST:TIMESTAMP,OP_CODE:BIGINT,BEFORE_PAP_R:DOUBLE,BEFORE_RAP_R:DOUBLE,BEFORE_QUAD_1_R:DOUBLE,BEFORE_QUAD_2_R:DOUBLE,BEFORE_QUAD_3_R:DOUBLE,BEFORE_QUAD_4_R:DOUBLE,BEFORE_PAP_R_A:DOUBLE,BEFORE_RAP_R_A:DOUBLE,BEFORE_QUAD_1_R_A:DOUBLE,BEFORE_QUAD_2_R_A:DOUBLE,BEFORE_QUAD_3_R_A:DOUBLE,BEFORE_QUAD_4_R_A:DOUBLE,BEFORE_PAP_R_B:DOUBLE,BEFORE_RAP_R_B:DOUBLE,BEFORE_QUAD_1_R_B:DOUBLE,BEFORE_QUAD_2_R_B:DOUBLE,BEFORE_QUAD_3_R_B:DOUBLE,BEFORE_QUAD_4_R_B:DOUBLE,BEFORE_PAP_R_C:DOUBLE,BEFORE_RAP_R_C:DOUBLE,BEFORE_QUAD_1_R_C:DOUBLE,BEFORE_QUAD_2_R_C:DOUBLE,BEFORE_QUAD_3_R_C:DOUBLE,BEFORE_QUAD_4_R_C:DOUBLE,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- *****************电表全事件-结束******************* -->
+        <!--<SqlMapping>-->
+        <!--&lt;!&ndash; 跳合闸 &ndash;&gt;-->
+        <!--<businessDataitemIds>70003</businessDataitemIds>-->
+        <!--<pnType>P</pnType>-->
+        <!--<projectName>eas</projectName>-->
+        <!--<topicName>BR_RCA_SWITCH_STATUS_QZ_SOURCE</topicName>-->
+        <!--<shardCount>20</shardCount>-->
+        <!--<lifeCycle>7</lifeCycle>-->
+        <!--<fields>METER_ID:BIGINT,SWITCH_STATUS:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING-->
+        <!--</fields>-->
+        <!--</SqlMapping>-->
+        <SqlMapping>
+            <!--测量点固定时间点单相电压 -->
+            <businessDataitemIds>243001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_FIXED_ONEPHASEU_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,ORG_NO:STRING,UA7:DOUBLE,UA11:DOUBLE,UA15:DOUBLE,UA19:DOUBLE,STATUS:STRING,DATA_SRC:STRING,LAST_READ_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--测量点固定时间点三相电压电流 -->
+            <businessDataitemIds>243002</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_FIXED_UI_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,ORG_NO:STRING,UA7:DOUBLE,UB7:DOUBLE,UC7:DOUBLE,IA7:DOUBLE,IB7:DOUBLE,IC7:DOUBLE,IZ7:DOUBLE,UA11:DOUBLE,UB11:DOUBLE,UC11:DOUBLE,IA11:DOUBLE,IB11:DOUBLE,IC11:DOUBLE,IZ11:DOUBLE,UA15:DOUBLE,UB15:DOUBLE,UC15:DOUBLE,IA15:DOUBLE,IB15:DOUBLE,IC15:DOUBLE,IZ15:DOUBLE,UA19:DOUBLE,UB19:DOUBLE,UC19:DOUBLE,IA19:DOUBLE,IB19:DOUBLE,IC19:DOUBLE,IZ19:DOUBLE,STATUS:STRING,DATA_SRC:STRING,LAST_READ_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--测量点固定时间点单相电流 -->
+            <businessDataitemIds>243003</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_FIXED_ONEPHASEU_AI_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,ORG_NO:STRING,IA7:DOUBLE,IA11:DOUBLE,IA15:DOUBLE,IA19:DOUBLE,IZ7:DOUBLE,IZ11:DOUBLE,IZ15:DOUBLE,IZ19:DOUBLE,STATUS:STRING,DATA_SRC:STRING,LAST_READ_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+
+
+        <SqlMapping>
+            <!-- 测量点日冻结电能示值 -->
+            <businessDataitemIds>other_freeze</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_READ_TC_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID_DATE:STRING,ID:BIGINT,DATA_TYPE:STRING,COL_TIME:TIMESTAMP,R:DOUBLE,R1:DOUBLE,R2:DOUBLE,R3:DOUBLE,R4:DOUBLE,R5:DOUBLE,R6:DOUBLE,R7:DOUBLE,R8:DOUBLE,R9:DOUBLE,R10:DOUBLE,R11:DOUBLE,R12:DOUBLE,R13:DOUBLE,R14:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+
+
+        <SqlMapping>
+            <!--分支箱及电能表总数 -->
+            <businessDataitemIds>230301</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>bt_e_branch_count_source</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,R:DOUBLE,R1:DOUBLE,R2:DOUBLE,R3:DOUBLE,R4:DOUBLE,ORG_NO:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--表箱当前数据 -->
+            <businessDataitemIds>230302</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>bt_e_branch_read_source</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                DATA_DATE:STRING,BOX_INDEX:BIGINT,BOX_ADDR:STRING,TERMINAL_ADDR:STRING,AREA_CODE:BIGINT,BOX_PHASE:STRING,BOX_POWER_TYPE:STRING,R:DOUBLE,UA:DOUBLE,UB:DOUBLE,UC:DOUBLE,P:DOUBLE,IA:DOUBLE,IB:DOUBLE,IC:DOUBLE,IZ:DOUBLE,C:DOUBLE,BOX_TEMP:DOUBLE,BOX_HR:DOUBLE,BOX_STATUS:STRING,METER_VAILD:STRING,BOX_CT:BIGINT,P_BOX_ADDR:STRING,ORG_NO:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--表箱内电表信息 -->
+            <businessDataitemIds>230303</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>bt_e_branch_meter_read_source</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,METER_INDEX:BIGINT,COMM_ADDR:STRING,METER_PROTOCOL:STRING,BOX_ADDR:STRING,TERMINAL_ADDR:STRING,AREA_CODE:BIGINT,R:DOUBLE,UA:DOUBLE,UB:DOUBLE,UC:DOUBLE,P:DOUBLE,IA:DOUBLE,IB:DOUBLE,IC:DOUBLE,IZ:DOUBLE,C:DOUBLE,ASSET_NO:STRING,BOX_HR:DOUBLE,ORG_NO:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--表箱日冻结正向有功 -->
+            <businessDataitemIds>230401</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_box_day_read_source</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_TYPE:STRING,DATA_DATE:STRING,COMM_ADDR:STRING,COL_INDEX:BIGINT,COL_TIME:TIMESTAMP,R:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!--表箱小时冻结正向有功 -->
+            <businessDataitemIds>230402</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_box_hour_read_source</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_TYPE:STRING,DATA_TIME:STRING,DATA_DATE:STRING,DATA_POINT_FLAG:STRING,COMM_ADDR:STRING,COL_INDEX:BIGINT,COL_TIME:TIMESTAMP,R:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 状态字1 -->
+            <businessDataitemIds>70001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_RUN_STATUS_NUM1_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>MPED_ID:BIGINT,DATA_DATE:STRING,ORG_NO:STRING,STATUS:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <SqlMapping>
+            <!-- 状态字3 -->
+            <businessDataitemIds>70003,04000503</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_RUN_STATUS_NUM3_SOURCE</topicName>
+            <shardCount>20</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>MPED_ID:BIGINT,DATA_DATE:STRING,ORG_NO:STRING,STATUS:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- 召测台区网络拓扑信息 -->
+        <SqlMapping>
+            <businessDataitemIds>1603002</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_node_net_info_source</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                TERMINAL_ID:BIGINT,TASK_ID:BIGINT,NODE_ADDR:STRING,DATA_DATE:STRING,COLL_DATE:STRING,ORG_NO:STRING,CP_NO:STRING,AREA_CODE:STRING,TERMINAL_ADDR:STRING,NODE_SNUM:BIGINT,ANWSER_NUM:BIGINT,NODE_IDEX:BIGINT,START_INDEX:BIGINT,NODE_ID:BIGINT,PROXY_NODE_ID:BIGINT,NODE_TIER:BIGINT,NODE_ROLE:BIGINT,NODE_TYPE:BIGINT,PHASE_INFO:BIGINT,LINE_ABNORMAL_ID:BIGINT,VENDOR_CODE:STRING,UPLINK_SUCC_RATE:BIGINT,DOWNLINK_SUCC_RATE:BIGINT,BOOTLOADER_VER:STRING,APPLICATION_VER:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- 召测电表接线错误信息 -->
+        <SqlMapping>
+            <businessDataitemIds>FF100200,1603003</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_meter_error_connect_source</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                TERMINAL_ID:BIGINT,DATA_DATE:STRING,TASK_ID:BIGINT,NODE_NUM:BIGINT,NODE_ADDR:STRING,METER_PROFILE_STAT:STRING,TG_STAT:STRING,PHASE:STRING,LINE_STAT:STRING,NODE_TG_ADDR:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- 召测集中器HPLC模块芯片ID -->
+        <SqlMapping>
+            <businessDataitemIds>2004207011</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>r_equip_chip_source</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                CHIP_ID:STRING,ORG_NO:STRING,TMNL_ADDR:STRING,EQUIP_TYPE:STRING,EQUIP_ADDR:STRING,CHIP_SOFT_VER:STRING,CHIP_MODEL:STRING,CHIP_MANUFACTURER:STRING,CURR_STATUS_CODE:STRING,CRE_DATE:STRING,UPDATE_DATE:TIMESTAMP,RMV_DATE:STRING,REMARKS:STRING,DATA_SRC:STRING,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- 本地通讯模块召测 -->
+        <SqlMapping>
+            <businessDataitemIds>207010</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_tmnl_localc_u_info_source</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:STRING,ORG_NO:STRING,DATA_DATE:STRING,LAST_READ_TIME:STRING,FACTORY_CODE:STRING,CHIP_CODE:STRING,UNIT_VERSION:STRING,RELEASE_VERS_TIME:STRING,UNIT_COMM_ADDR:STRING,ID_LENTH:BIGINT,ID_FORMAT:STRING,UNIT_ID:STRING,ID_DESC:STRING,BAUDRATE_CODE:STRING,CHECK_BIT:STRING,DATAA_BIT:BIGINT,STOP_BIT:BIGINT,FLOW_CTRL:STRING,UNIT_TYPE:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- 远程通讯模块召测 -->
+        <SqlMapping>
+            <businessDataitemIds>207009</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_tmnl_telec_u_info_source</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:STRING,ORG_NO:STRING,DATA_DATE:STRING,LAST_READ_TIME:STRING,FACTORY_CODE:STRING,UNIT_TYPE:STRING,MAIN_PRO_VERSION:STRING,RELEASE_TIME:STRING,HARD_VERSION:STRING,HARD_RELEASE_TIME:STRING,SIM_CCID_NO:STRING,SIM_NO:STRING,ID_LENTH:BIGINT,ID_FORMAT:STRING,UNIT_ID:STRING,ID_DESC:STRING,NET_TYPE:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- 台区识别跨台区电能表事件 -->
+        <SqlMapping>
+            <businessDataitemIds>31120200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_event_erc63_source</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,EVENT_DATE:STRING,TERMINAL_ID:BIGINT,EVENT_INDEX:BIGINT,EVENT_BEG_TIME:TIMESTAMP,EVENT_END_TIME:TIMESTAMP,COMM_ADDR:STRING,HOST_NODE_ADDR:STRING,CHANGE_TIME:TIMESTAMP,PHASE:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- 通信模块变更事件 -->
+        <SqlMapping>
+            <businessDataitemIds>30300200</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_event_erc43_source</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,EVENT_DATE:STRING,EVENT_TIME:TIMESTAMP,TERMINAL_ID:BIGINT,INPUT_TIME:TIMESTAMP,AREA_CODE:STRING,TERMINAL_ADDR:STRING,ORG_NO:STRING,REPORT_OR_COLLECT:STRING,UPDATE_FLAG:STRING,BF_UNIT_TYPE:STRING,BF_FACTORY_CODE:STRING,BF_COMB_ID:STRING,BF_UNIT_ID:STRING,BF_COMM_ADDR:STRING,AF_UNIT_TYPE:STRING,AF_FACTORY_CODE:STRING,AF_COMB_ID:STRING,AF_UNIT_ID:STRING,REC_SOURCE:STRING,AF_COMM_ADDR:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!-- 日冻结分相电能示值 -->
+        <SqlMapping>
+            <businessDataitemIds>233004,233005,233006,233007
+            </businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_mp_day_phread_source</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_TYPE:STRING,DATA_DATE:STRING,COL_TIME:TIMESTAMP,A_R:DOUBLE,B_R:DOUBLE,C_R:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- erc56事件入库 -->
+        <SqlMapping>
+            <businessDataitemIds>erc56</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_event_erc56</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,TERMINAL_ID:BIGINT,EVENT_TIME:TIMESTAMP,EVENT_FLAG:STRING,NODE_NUM:BIGINT,METER_ID:BIGINT,COMM_ADDR:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP,EVENT_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <!-- 分时电价：两套时区表切换时间，两套时段表切换时间 -->
+        <SqlMapping>
+            <businessDataitemIds>04000106,04000107</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_TIME_DIVISION_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                METER_ID:BIGINT,MPED_ID:BIGINT,DIVTYPE:STRING,DIVTIME:TIMESTAMP,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- 年时区数 -->
+        <SqlMapping>
+            <businessDataitemIds>04000201,04000202</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_COUNT_DIVISION_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>METER_ID:BIGINT,MPED_ID:BIGINT,COUNTTYPE:STRING,NUMBERS:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- 第一套时区表数据 第二套时区表数据 -->
+        <SqlMapping>
+            <businessDataitemIds>04010000,04020000</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_ZONE_DIVISION_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>METER_ID:BIGINT,MPED_ID:BIGINT,ZONETYPE:STRING,CONTENTS:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- 第一套第1日时段表数据 第二套第1日时段表数据 -->
+        <SqlMapping>
+            <businessDataitemIds>04010001,04020001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_METER_SECT_DIVISION_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>METER_ID:BIGINT,MPED_ID:BIGINT,SECTYPE:STRING,CONTENTS:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- 巡检仪：电流回路状态 50-->
+        <SqlMapping>
+            <businessDataitemIds>328001</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_CURR_STATE_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                MPED_ID:BIGINT,DATA_DATE:STRING,A_STATE:STRING,B_STATE:STRING,C_STATE:STRING,MAC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!-- 巡检仪：专用模块工况信息 51 -->
+        <SqlMapping>
+            <businessDataitemIds>328002</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_CT_STATE_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                MPED_ID:BIGINT,DATA_DATE:STRING,A_STATE:STRING,B_STATE:STRING,C_STATE:STRING,A_MAX_RATE:DOUBLE,B_MAX_RATE:DOUBLE,C_MAX_RATE:DOUBLE,A_MIN_RATE:DOUBLE,B_MIN_RATE:DOUBLE,C_MIN_RATE:DOUBLE,A_CUR_VALUE:DOUBLE,B_CUR_VALUE:DOUBLE,C_CUR_VALUE:DOUBLE,TA_TEMP:DOUBLE,A_OHM_VALUE_I:BIGINT,A_ANGLE_VALUE_I:DOUBLE,A_RATE_VALUE_I:DOUBLE,B_OHM_VALUE_I:BIGINT,B_ANGLE_VALUE_I:DOUBLE,B_RATE_VALUE_I:DOUBLE,C_OHM_VALUE_I:BIGINT,C_ANGLE_VALUE_I:DOUBLE,C_RATE_VALUE_I:DOUBLE,A_OHM_VALUE_II:BIGINT,A_ANGLE_VALUE_II:DOUBLE,A_RATE_VALUE_II:DOUBLE,B_OHM_VALUE_II:BIGINT,B_ANGLE_VALUE_II:DOUBLE,B_RATE_VALUE_II:DOUBLE,C_OHM_VALUE_II:BIGINT,C_ANGLE_VALUE_II:DOUBLE,C_RATE_VALUE_II:DOUBLE,A_OHM_VALUE_III:BIGINT,A_ANGLE_VALUE_III:DOUBLE,A_RATE_VALUE_III:DOUBLE,B_OHM_VALUE_III:BIGINT,B_ANGLE_VALUE_III:DOUBLE,B_RATE_VALUE_III:DOUBLE,C_OHM_VALUE_III:BIGINT,C_ANGLE_VALUE_III:DOUBLE,C_RATE_VALUE_III:DOUBLE,MAC:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+
+        <!-- 共享电源：F7:实时用电数据上报 -->
+        <SqlMapping>
+            <businessDataitemIds>230507</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_GX7_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,EXT_CONS_ID:STRING,TERMINAL_ID:BIGINT,EVENT_DATE:STRING,COLL_TIME:TIMESTAMP,METER_NO:STRING,USER_NO:STRING,POWER_SUM:DOUBLE,POWER_P1:DOUBLE,POWER_P2:DOUBLE,POWER_P3:DOUBLE,POWER_P4:DOUBLE,BGDEG_P1:DOUBLE,BGDEG_P2:DOUBLE,BGDEG_P3:DOUBLE,BGDEG_P4:DOUBLE,EDDEG_P1:DOUBLE,EDDEG_P2:DOUBLE,EDDEG_P3:DOUBLE,EDDEG_P4:DOUBLE,A_VOLT:DOUBLE,B_VOLT:DOUBLE,C_VOLT:DOUBLE,A_CURRENT:DOUBLE,B_CURRENT:DOUBLE,C_CURRENT:DOUBLE,LX_CURRENT:DOUBLE,BEGIN_TIME:TIMESTAMP,POWER_FEE:DOUBLE,ORG_NO:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+
+        <!-- 共享电源：F8:窃电数据上报 -->
+        <SqlMapping>
+            <businessDataitemIds>230508</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_GX8_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,EXT_CONS_ID:STRING,TERMINAL_ID:BIGINT,EVENT_DATE:STRING,COLL_TIME:TIMESTAMP,ADDR:STRING,CHANNEL_NO:STRING,BEGIN_CHARGE_TIME:TIMESTAMP,END_CHARGE_TIME:TIMESTAMP,CHARGE_TIME:BIGINT,POWER_SUM:DOUBLE,POWER_P1:DOUBLE,POWER_P2:DOUBLE,POWER_P3:DOUBLE,POWER_P4:DOUBLE,BGDEG_P1:DOUBLE,BGDEG_P2:DOUBLE,BGDEG_P3:DOUBLE,BGDEG_P4:DOUBLE,EDDEG_P1:DOUBLE,EDDEG_P2:DOUBLE,EDDEG_P3:DOUBLE,EDDEG_P4:DOUBLE,POWER_FEE:DOUBLE,ORG_NO:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+
+        <!-- 共享电源：F80:终端停/上电事件 -->
+        <SqlMapping>
+            <businessDataitemIds>230510</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_GX80_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,EXT_CONS_ID:STRING,TERMINAL_ID:BIGINT,EVENT_DATE:STRING,POWER_DOWN_DATE:TIMESTAMP,RESTART_DATE:TIMESTAMP,ORG_NO:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+
+        <!-- 共享电源：F88:开/关用电小门事件记录 -->
+        <SqlMapping>
+            <businessDataitemIds>230518</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_GX88_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,EXT_CONS_ID:STRING,TERMINAL_ID:BIGINT,EVENT_DATE:STRING,OPEN_DATE:TIMESTAMP,CLOSE_DATE:TIMESTAMP,IS_NORMAL:STRING,TYPE_ID:STRING,IN_TYPE:STRING,IS_INUSE:STRING,IS_DEAL:STRING,DEAL_DATE:TIMESTAMP,CHANNEL_NO:STRING,ORG_NO:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+
+        <!-- 共享电源：F89:主动上报窃电预警事件 -->
+        <SqlMapping>
+            <businessDataitemIds>230519</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_GX89_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,EXT_CONS_ID:STRING,TERMINAL_ID:BIGINT,EVENT_DATE:STRING,ALARM_DATE:TIMESTAMP,CHANNEL_NO:STRING,ADDR:STRING,IS_VALID:STRING,ORG_NO:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+
+        <!-- 共享电源：F90:异常断电事件 -->
+        <SqlMapping>
+            <businessDataitemIds>230520</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_GX90_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                EVENT_ID:BIGINT,EXT_CONS_ID:STRING,TERMINAL_ID:BIGINT,EVENT_DATE:STRING,EXP_DATE:TIMESTAMP,CHANNEL_NO:STRING,ADDR:STRING,ORG_NO:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+
+        <!-- 终端与主站月通讯流量 -->
+        <SqlMapping>
+            <businessDataitemIds>239003</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>e_tmnl_mon_commflow_source</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>ID:BIGINT,DATA_DATE:STRING,MON_BYTE:DOUBLE,ORG_NO:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!--开盖总次数-->
+        <SqlMapping>
+            <businessDataitemIds>71501</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_EVENT_METER_TOTAL_NUM_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                MPED_ID:BIGINT,DATAITEM_ID:BIGINT,TERMINAL_ID:BIGINT,TOTAL_NUM:BIGINT,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!--日不平衡度越限累计时间-->
+        <SqlMapping>
+            <businessDataitemIds>235006</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_DAY_UNBALANCE_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,I_UB_TIME:BIGINT,U_UB_TIME:BIGINT,I_UB_MAX:DOUBLE,I_UB_MAX_TIME:TIMESTAMP,U_UB_MAX:DOUBLE,U_UB_MAX_TIME:TIMESTAMP,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!--日冻结掉电记录数据（新补充）-->
+        <SqlMapping>
+            <businessDataitemIds>236006</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_TMNL_DAY_METER_LOST_POWER_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                MPED_ID:BIGINT,DATA_DATE:STRING,TERMINAL_ID:BIGINT,TOTAL_TIMES:BIGINT,POWER_OFF_TIME1:TIMESTAMP,POWER_ON_TIME1:TIMESTAMP,POWER_OFF_TIME2:TIMESTAMP,POWER_ON_TIME2:TIMESTAMP,POWER_OFF_TIME3:TIMESTAMP,POWER_ON_TIME3:TIMESTAMP,POWER_OFF_TIME4:TIMESTAMP,POWER_ON_TIME4:TIMESTAMP,POWER_OFF_TIME5:TIMESTAMP,POWER_ON_TIME5:TIMESTAMP,POWER_OFF_TIME6:TIMESTAMP,POWER_ON_TIME6:TIMESTAMP,POWER_OFF_TIME7:TIMESTAMP,POWER_ON_TIME7:TIMESTAMP,POWER_OFF_TIME8:TIMESTAMP,POWER_ON_TIME8:TIMESTAMP,POWER_OFF_TIME9:TIMESTAMP,POWER_ON_TIME9:TIMESTAMP,POWER_OFF_TIME10:TIMESTAMP,POWER_ON_TIME10:TIMESTAMP,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!--当前掉电记录数据-->
+        <SqlMapping>
+            <businessDataitemIds>204030</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_TMNL_REAL_METER_LOST_POWER_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                MPED_ID:BIGINT,DATA_DATE:STRING,TERMINAL_ID:BIGINT,TOTAL_TIMES:BIGINT,POWER_OFF_TIME1:TIMESTAMP,POWER_ON_TIME1:TIMESTAMP,POWER_OFF_TIME2:TIMESTAMP,POWER_ON_TIME2:TIMESTAMP,POWER_OFF_TIME3:TIMESTAMP,POWER_ON_TIME3:TIMESTAMP,POWER_OFF_TIME4:TIMESTAMP,POWER_ON_TIME4:TIMESTAMP,POWER_OFF_TIME5:TIMESTAMP,POWER_ON_TIME5:TIMESTAMP,POWER_OFF_TIME6:TIMESTAMP,POWER_ON_TIME6:TIMESTAMP,POWER_OFF_TIME7:TIMESTAMP,POWER_ON_TIME7:TIMESTAMP,POWER_OFF_TIME8:TIMESTAMP,POWER_ON_TIME8:TIMESTAMP,POWER_OFF_TIME9:TIMESTAMP,POWER_ON_TIME9:TIMESTAMP,POWER_OFF_TIME10:TIMESTAMP,POWER_ON_TIME10:TIMESTAMP,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!--全网感知-->
+        <SqlMapping>
+            <businessDataitemIds>80122</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>BN_FEEL_TMNL_CURVE_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                TERMINAL_ID:BIGINT,DATA_DATE:STRING,ORG_NO:STRING,NET_TIME:STRING,ONLINE_NUM:BIGINT,UNLINE_NUM:BIGINT,TOTAL_NUM:BIGINT,DATA_POINT_FLAG:STRING,POINT_TIME:BIGINT,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!--实时测量点购电信息-->
+        <SqlMapping>
+            <businessDataitemIds>236005,204009,078102FF</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MPED_REAL_BUY_RECORD_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COL_TIME:TIMESTAMP,ORG_NO:STRING,REMAIN_ENEGY:DOUBLE,REMAIN_MONEY:DOUBLE,ALARM_ENEGY:DOUBLE,FAIL_ENEGY:DOUBLE,SUM_ENEGY:DOUBLE,SUM_MONEY:DOUBLE,BUY_NUM:BIGINT,OVERDR_LIMIT:DOUBLE,OVERDR_ENEGY:DOUBLE,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!--重点用户参数-->
+        <SqlMapping>
+            <businessDataitemIds>121005</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_TMNL_PARA_04035_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                MPED_ID:BIGINT,TERMINAL_ID:BIGINT,INDEX_ADDR:STRING,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+
+        <!--月冻结电压统计-->
+        <SqlMapping>
+            <businessDataitemIds>238005</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MP_MON_VSTAT_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,UA_UUP_TIME:BIGINT,UA_LLW_TIME:BIGINT,UA_UP_TIME:BIGINT,UA_LOW_TIME:BIGINT,UA_NML_TIME:BIGINT,UB_UUP_TIME:BIGINT,UB_LLW_TIME:BIGINT,UB_UP_TIME:BIGINT,UB_LOW_TIME:BIGINT,UB_NML_TIME:BIGINT,UC_UUP_TIME:BIGINT,UC_LLW_TIME:BIGINT,UC_UP_TIME:BIGINT,UC_LOW_TIME:BIGINT,UC_NML_TIME:BIGINT,UA_MAX:DOUBLE,UA_MAX_TIME:TIMESTAMP,UA_MIN:DOUBLE,UA_MIN_TIME:TIMESTAMP,UB_MAX:DOUBLE,UB_MAX_TIME:TIMESTAMP,UB_MIN:DOUBLE,UB_MIN_TIME:TIMESTAMP,UC_MAX:DOUBLE,UC_MAX_TIME:TIMESTAMP,UC_MIN:DOUBLE,UC_MIN_TIME:TIMESTAMP,UA_AVERAGE:DOUBLE,UB_AVERAGE:DOUBLE,UC_AVERAGE:DOUBLE,UA_UP_RATE:DOUBLE,UB_UP_RATE:DOUBLE,UC_UP_RATE:DOUBLE,UA_DOWN_RATE:DOUBLE,UB_DOWN_RATE:DOUBLE,UC_DOWN_RATE:DOUBLE,UA_REGU_RATE:DOUBLE,UB_REGU_RATE:DOUBLE,UC_REGU_RATE:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING
+            </fields>
+        </SqlMapping>
+        <!--实时正向有功-->
+        <SqlMapping>
+            <businessDataitemIds>current</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MPED_REAL_READ_SOURCE</topicName>
+            <shardCount>5</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID_DATE:STRING,ID:BIGINT,DATA_TYPE:STRING,COL_TIME:TIMESTAMP,R:DOUBLE,R1:DOUBLE,R2:DOUBLE,R3:DOUBLE,R4:DOUBLE,R5:DOUBLE,R6:DOUBLE,R7:DOUBLE,R8:DOUBLE,R9:DOUBLE,R10:DOUBLE,R11:DOUBLE,R12:DOUBLE,R13:DOUBLE,R14:DOUBLE,ORG_NO:STRING,STATUS:STRING,DATA_SRC:STRING,INSERT_TIME:TIMESTAMP,SHARD_NO:STRING,DATA_DATE:STRING
+            </fields>
+        </SqlMapping>
+        <!--实时有功功率-->
+        <SqlMapping>
+            <businessDataitemIds>active_power</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MPED_REAL_ACTIVE_POWER_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COL_TIME:TIMESTAMP,ORG_NO:STRING,TOTAL_ACTIVE_POWER:DOUBLE,A_ACTIVE_POWER:DOUBLE,B_ACTIVE_POWER:DOUBLE,C_ACTIVE_POWER:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!--实时无功功率-->
+        <SqlMapping>
+            <businessDataitemIds>reactive_power</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MPED_REAL_REACTIVE_POWER_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COL_TIME:TIMESTAMP,ORG_NO:STRING,TOTAL_ACTIVE_POWER:DOUBLE,A_ACTIVE_POWER:DOUBLE,B_ACTIVE_POWER:DOUBLE,C_ACTIVE_POWER:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!--实时功率因数-->
+        <SqlMapping>
+            <businessDataitemIds>power_factor</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MPED_REAL_POWER_FACTOR_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COL_TIME:TIMESTAMP,ORG_NO:STRING,TOTAL_POWER_FACTOR:DOUBLE,A_POWER_FACTOR:DOUBLE,B_POWER_FACTOR:DOUBLE,C_POWER_FACTOR:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!--实时电压-->
+        <SqlMapping>
+            <businessDataitemIds>voltage</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MPED_REAL_VOLTAGE_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COL_TIME:TIMESTAMP,ORG_NO:STRING,A_VOLTAGE:DOUBLE,B_VOLTAGE:DOUBLE,C_VOLTAGE:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!--实时电流-->
+        <SqlMapping>
+            <businessDataitemIds>electricity</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MPED_REAL_ELECTRICITY_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COL_TIME:TIMESTAMP,ORG_NO:STRING,A_ELECTRICITY:DOUBLE,B_ELECTRICITY:DOUBLE,C_ELECTRICITY:DOUBLE,ZERO_ELECTRICITY:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+        <!--实时视在功率-->
+        <SqlMapping>
+            <businessDataitemIds>power</businessDataitemIds>
+            <pnType>P</pnType>
+            <projectName>eas</projectName>
+            <topicName>E_MPED_REAL_APPARENT_POWER_SOURCE</topicName>
+            <shardCount>10</shardCount>
+            <lifeCycle>7</lifeCycle>
+            <fields>
+                ID:BIGINT,DATA_DATE:STRING,COL_TIME:TIMESTAMP,ORG_NO:STRING,TOTAL_POWER_FACTOR:DOUBLE,A_POWER_FACTOR:DOUBLE,B_POWER_FACTOR:DOUBLE,C_POWER_FACTOR:DOUBLE,SHARD_NO:STRING,INSERT_TIME:TIMESTAMP
+            </fields>
+        </SqlMapping>
+
+    </listSql>
+</SqlMappingConfig>

@@ -1,0 +1,46 @@
+spring:
+  redis:
+    password: 1qaz2wsx4rfv   # 密码（默认为空）
+    timeout: 600000  # 连接超时时长（毫秒）ms
+    jedis:
+      pool:
+        max-active: 1000  # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1      # 连接池最大阻塞等待时间（使用负值表示没有限制）ms
+        max-idle: 10      # 连接池中的最大空闲连接
+        min-idle: 3       # 连接池中的最小空闲连接
+        max-attempts: 5   # 重试次数
+        test-on-borrow: true # 是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
+    sentinel:
+      master: sentinel-120.55.242.68-20030
+      nodes: 120.55.242.68:20032,120.55.242.68:20033,120.55.242.68:20034
+  redis-archives:
+    database: 0
+    hosts: 120.55.242.68
+    port: 20024
+    password: 1qaz2wsx4rfv   # 密码（默认为空）
+    timeout: 600000  # 连接超时时长（毫秒）ms
+  redis-cluster:
+    password: 1qaz2wsx4rfv   # 密码（默认为空）
+    timeout: 600000  # 连接超时时长（毫秒）ms
+    cluster:
+      nodes: 120.55.242.68:20018,120.55.242.68:20019,120.55.242.68:20020,120.55.242.68:20021,120.55.242.68:20022,120.55.242.68:20023
+      max-redirects: 6
+  datahub:
+    project: hntl
+task:
+  batch:
+    delsize: 50
+    timeout: 5
+##多数据源的配置
+#dynamic:
+#  datasource:
+#    slave1:
+#      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#      url: jdbc:sqlserver://localhost:1433;DatabaseName=renren_security
+#      username: sa
+#      password: 123456
+#    slave2:
+#      driver-class-name: org.postgresql.Driver
+#      url: jdbc:postgresql://localhost:5432/renren_security
+#      username: renren
+#      password: 123456

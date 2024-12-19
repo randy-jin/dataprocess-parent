@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+
+    <apollo:config/>
+
+    <import resource="redisConfig.xml"/>
+    <import resource="redisClusterConfig.xml"/>
+    <import resource="tablestore.xml"/>
+
+    <!--任务线程-->
+    <bean name="b1" class="org.future.systemhandler.SystemManager" init-method="systemInit">
+        <property name="projectName" value="档案加载"/>
+        <property name="task">
+            <list>
+                <bean id="task1" class="org.future.pojo.Task">
+                    <property name="threadSize" value="5"/>
+                    <property name="useOtherCache" value="true"/>
+                    <property name="pipelineSize" value="100"/>
+                    <property name="queueName" value="${queueNameOne}"/>
+                    <property name="executeTask" value="com.ls.athena.archives.ArchiversProcessor"/>
+                </bean>
+                <bean id="task21" class="org.future.pojo.Task">
+                    <property name="threadSize" value="10"/>
+                    <property name="useOtherCache" value="true"/>
+                    <property name="pipelineSize" value="100"/>
+                    <property name="queueName" value="ARCHIVES_AUTO"/>
+                    <property name="executeTask" value="com.ls.athena.archives.ArchiversAllProcessor"/>
+                </bean>
+            </list>
+        </property>
+        <property name="mapzz">
+            <map>
+                <entry key="dataConnection" value-ref="dataConnection"/>
+                <entry key="jdbcTemplate" value-ref="jdbcTemplate"/>
+                <entry key="operateBzData" value-ref="operateBzData"/>
+                <entry key="syncClient" value-ref="syncClient"/>
+                <entry key="WRITE_OTS_ON_OFF" value="0" value-type="java.lang.Integer"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="ch" class="org.future.listener.httpclient.HttpClient" init-method="httpClient">
+        <property name="path" value="/monitor"/>
+        <property name="port" value="18081"/>
+    </bean>
+
+
+    <bean id="dataConnection" class="org.future.datasource.impl.RedisConnectionImpl">
+        <property name="redisTemplate" ref="defaultRedisTemplate"/>
+    </bean>
+
+    <bean class="org.future.datasource.impl.multi.manager.Manager" init-method="manager">
+        <constructor-arg name="threadSize" value="5"/>
+        <constructor-arg name="dataConnection" ref="dataConnection"/>
+        <constructor-arg name="sendQueue" value="ARCHIVES_AUTO"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+    <apollo:config/>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSourceByApollo"/>
+    </bean>
+    <!-- drds-->
+    <!--<bean id="dataSourceByApollo" class="org.apache.commons.dbcp.BasicDataSource"-->
+    <!--destroy-method="close">-->
+    <!--<property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
+    <!--&lt;!&ndash;<property name="url" value="jdbc:mysql://drds9n7a819j5hfdpublic.drds.aliyuncs.com:3306/easdb" />&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="username" value="easdb" />&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="password" value="03o06G2T10ZU" />&ndash;&gt;-->
+    <!--<property name="url" value="jdbc:mysql://drdshbgar2q145xypublic.drds.aliyuncs.com:3306/bjeasdb" />-->
+    <!--<property name="username" value="bjeasdb" />-->
+    <!--<property name="password" value="Bjeas_2020" />-->
+    <!--<property name="initialSize" value="3" />-->
+    <!--<property name="maxActive" value="100" />-->
+    <!--<property name="maxIdle" value="30" />-->
+    <!--<property name="minIdle" value="2" />-->
+    <!--<property name="maxWait" value="5000" />-->
+    <!--<property name="validationQuery" value="select 1 from dual" />-->
+    <!--<property name="testOnBorrow" value="true" />-->
+    <!--<property name="removeAbandoned" value="true" />-->
+    <!--<property name="removeAbandonedTimeout" value="300" />-->
+    <!--<property name="logAbandoned" value="true" />-->
+    <!--</bean>-->
+
+    <!-- drds-->
+    <bean id="dataSourceByApollo" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${dburl:apollo}"/>
+        <property name="username" value="${dbuser:apollo}"/>
+        <property name="password" value="${dbpwd:apollo}"/>
+        <property name="initialSize" value="3"/>
+        <property name="maxActive" value="100"/>
+        <property name="maxIdle" value="30"/>
+        <property name="minIdle" value="2"/>
+        <property name="maxWait" value="5000"/>
+        <property name="validationQuery" value="select 1 from dual"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="removeAbandoned" value="true"/>
+        <property name="removeAbandonedTimeout" value="300"/>
+        <property name="logAbandoned" value="true"/>
+    </bean>
+
+    <!--﻿pgsql-->
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
+    <!--destroy-method="close">-->
+    <!--<property name="driverClassName" value="org.postgresql.Driver" />-->
+    <!--<property name="url" value="jdbc:postgresql://47.93.119.227:15432/postgres" />-->
+    <!--<property name="username" value="postgres" />-->
+    <!--<property name="password" value="Postgres@123" />-->
+    <!--<property name="initialSize" value="3" />-->
+    <!--<property name="maxActive" value="100" />-->
+    <!--<property name="maxIdle" value="30" />-->
+    <!--<property name="minIdle" value="2" />-->
+    <!--<property name="maxWait" value="5000" />-->
+    <!--<property name="validationQuery" value="select 1 " />-->
+    <!--<property name="testOnBorrow" value="true" />-->
+    <!--<property name="removeAbandoned" value="true" />-->
+    <!--<property name="removeAbandonedTimeout" value="300" />-->
+    <!--<property name="logAbandoned" value="true" />-->
+    <!--</bean>-->
+
+</beans>

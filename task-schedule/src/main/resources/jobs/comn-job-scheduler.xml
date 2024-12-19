@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>	
+	<bean id="commonJobAssign" class="com.tl.easb.task.job.common.CommonJobAssign">
+		<property name="executers" >
+			<map>
+				<!-- 注：entry中主键一经配置，不允许轻易删除，否则已经安排的任务不能被清除，如果不需要可以将下面的List置空 -->
+				<!-- 调用存储过程配置 -->
+				<entry key="TASK_PROC_FILE_GROUP" >
+					<list>
+					</list>
+				</entry>
+				<!-- 调用java程序配置-->
+				<entry key="TASK_PROGRAM_FILE_GROUP" >
+					<list>
+						<!-- <ref bean="DG_DETAIL_SIM_FLOW"/>
+						<ref bean="DG_DETAIL_DAY_ENERGY"/>
+						<ref bean="DG_DETAIL_MONTH_ENERGY"/>
+						<ref bean="DG_DETAIL"/> -->
+					</list>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+</beans>

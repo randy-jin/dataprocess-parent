@@ -1,0 +1,92 @@
+server:
+  port: 8082
+
+mybatis:
+  mapperLocations: classpath:mapper/**/*.xml
+  type-aliases-package: com.tl.dataprocess.rocketMQ.entity
+spring:
+  application:
+    name: datahub-to-rocketMQ
+  redis:
+    cluster:
+      nodes: 120.55.242.68:20018,120.55.242.68:20019,120.55.242.68:20020,120.55.242.68:20021,120.55.242.68:20022,120.55.242.68:20023
+      max-redirects: 6
+#    host: 121.36.91.254
+#    port: 16379
+    password: UoQzC2WjHm1y
+    # 连接超时时间
+    timeout: 60000
+    jedis:
+      pool:
+        # 连接池的最大数据库连接数
+        max-active: 2048
+        # 连接池最大阻塞等待时间
+        max-wait: 5000
+        # 连接池中的最大空闲连接
+        max-idle: 200
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    database: 0
+  # 存白名单的库
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    username: bjeasdb
+    password: X3ruV0mB
+    name: druid
+    druid:
+      # 最小连接池数量
+      minIdle: 10
+      # 最大连接池数量
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+    url: jdbc:mysql://drdshbgar2q145xypublic.drds.aliyuncs.com:3306/bjeasdb?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+
+datahub:
+  default:
+    endpoint: https://dh-cn-hangzhou.aliyuncs.com
+    access:
+      id: wftF2HEfAtTCx2zr
+      key: 3ZSdbOdkNTQVuU9E2qHP1N4571iGe9
+    project: hntl
+    topic:
+      blackoutEvent: e_event_erc14_source
+      volCurve: e_mp_vol_curve_ud_source
+      curCurve: e_mp_cur_curve_ud_source
+      powerCurve: e_mp_power_curve_ud_source
+      factorCurve: e_mp_factor_curve_ud_source
+      readCurve: e_mp_read_curve_ud_source
+      userPowerCut: e_meter_event_no_power_source
+#      readCurve: e_mp_day_read_source
+    subId:
+      blackoutEvent: 1657008971294XVTWJ
+      volCurve: 1588842420861S8WRS
+      curCurve: 1588839355367RIZTP
+      powerCurve: 1640685557469Q4U2G
+      factorCurve: 1588842097900DS04X
+      readCurve: 1661396698791Z7G04
+      userPowerCut: 1581405236381ABYDD
+
+rocketmq:
+  test:
+    producerGroup: rmq-group
+    namesrvAddr: localhost:9876
+    # 生产者实例名称
+    instanceName: producer
+    topic: cms_tg_outage
+    # 标签
+    tag: TagA
+  aliyun:
+    accessKey: test
+    secretKey: test
+    nameSrvAddr: localhost:9876
+#    topic: cms_tg_outage
+    groupId: test
+    instanceId : test
+#    tag: TagA
+    orderTopic: test
+    orderGroupId: test
+    orderTag: test
+
+filterFlag: false

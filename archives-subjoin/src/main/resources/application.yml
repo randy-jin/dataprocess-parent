@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      max-active: 500
+      initial-size: 5
+      max-wait: 60000
+      min-idle: 0
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+    driver-class-name: com.mysql.jdbc.Driver
+  aop:
+    proxy-target-class: false
+  redis:
+    pool:
+      max-active: 1000
+      max-wait: 10
+      max-idle: 8
+      min-idle: 0
+    timeout: 3000
+    database: 0
+app:
+  id: archives
+apollo:
+  meta: http://120.55.242.68:18083
+  bootstrap:
+    enabled: true
+    namespaces: application
+server:
+  port: 18083
+logging:
+  config: classpath:logging-config.xml
+task:
+  size: 4
+  queueName: Q_CHG_ARCHIVES_SUBJOIN
+  runnable: com.tl.subjoin.archives.ArchiversProcessor
+chg:
+  versions: hn
+
+

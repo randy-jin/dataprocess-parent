@@ -1,0 +1,16 @@
+local subtaskSize=KEYS[1]
+local key_cp2subtask=KEYS[2]
+local p_subtask2cp=KEYS[3]
+local cpSet
+local subtask
+for i=1,subtaskSize do
+  subtask=ARGV[i]
+ --get cps
+  cpSet=redis.call('smembers',p_subtask2cp..subtask)
+  for k,cp in pairs(cpSet) do
+  	 redis.call('hdel',key_cp2subtask,cp)
+  end
+  redis.call('del',p_subtask2cp..subtask)
+end
+  
+   

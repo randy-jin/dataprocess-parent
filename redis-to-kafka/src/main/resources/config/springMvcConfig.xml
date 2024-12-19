@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <import resource="classpath:bean-utils.xml"/>
+    <import resource="classpath:config/protocol-archives-spring.xml"/>
+    <import resource="classpath:config/datahub.xml"/>
+    <import resource="classpath:config/start-sqlconfig-listener-spring.xml"/>
+    <import resource="classpath:config/terminal-archives-spring.xml"/>
+    <!-- import redis configuration -->
+    <!-- redisConfig.xml配置文件为依赖配置，不管是采用cluster、Single还是sentinel模式都需要引用该配置 -->
+    <import resource="classpath:redisConfig.xml"/>
+    <!--Redis单实例 -->
+    <!--<import resource="classpath:redisSingleConfig.xml" />-->
+    <!-- Redis哨兵模式 -->
+    <import resource="classpath:redisSentinelConfig.xml"/>
+    <!-- Redis分布式 -->
+    <import resource="classpath:redisClusterConfig-dev.xml"/>
+    <import resource="classpath:config/spring-task.xml"/>
+
+
+
+</beans>

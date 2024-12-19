@@ -1,0 +1,5 @@
+local p_subtask2subtask=KEYS[2]
+local p_taskUpdTime=KEYS[3]
+local subtask=redis.call("get",KEYS[1])
+local task=redis.call("hget",p_subtask2subtask,subtask)
+redis.call("set",p_taskUpdTime..task,KEYS[4])

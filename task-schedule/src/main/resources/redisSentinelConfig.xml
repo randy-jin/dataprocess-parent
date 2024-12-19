@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- redis的连接池pool，不是必选项：timeout/password -->
+    <bean id="jedisSentinelPool" class="redis.clients.jedis.JedisSentinelPool">
+        <constructor-arg name="masterName" value="sentinel-120.55.242.68-20030"/>
+        <constructor-arg name="sentinels">
+            <set>
+                <value>120.55.242.68:20032</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig"/>
+        <constructor-arg name="timeout" value="10000" type="int"/>
+        <constructor-arg name="password" value="1qaz2wsx4rfv"/>
+    </bean>
+
+
+</beans>

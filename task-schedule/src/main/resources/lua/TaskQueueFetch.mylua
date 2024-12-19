@@ -1,0 +1,6 @@
+local listKey=KEYS[1]
+local stepSize=tonumber(KEYS[2])-1
+local length=redis.call("llen",listKey)
+local fetchedSubtasks=redis.call("lrange",listKey,0,stepSize)
+redis.call("ltrim",listKey,stepSize+1,length)
+return fetchedSubtasks

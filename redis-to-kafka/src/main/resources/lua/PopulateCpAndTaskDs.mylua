@@ -1,0 +1,26 @@
+local subtask
+local cp
+local size=tonumber(KEYS[1])
+local key_cp2subtask=KEYS[2]
+local p_subtask2cp=KEYS[3]
+local idx=1
+local isExist
+local existedCps={}
+local existedCpIdx=1
+while idx<=size do
+  subtask=ARGV[idx]
+  idx=idx+1
+  cp=ARGV[idx]
+  idx=idx+1
+  isExist=redis.call("HEXISTS",key_cp2subtask,cp)
+  if  isExist~=1 then
+    --populate cp2subtask if the cp doesn't exist in it
+    redis.call("HSET",key_cp2subtask,cp,subtask)
+    --populate subtask2cp data set
+    redis.call("SADD",p_subtask2cp..subtask,cp)
+  else 
+      existedCps[existedCpIdx]=cp
+      existedCpIdx=existedCpIdx+1
+  end
+end
+return existedCps

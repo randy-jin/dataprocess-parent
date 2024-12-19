@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--<bean id="test1" class="com.tl.cluster.T1" init-method="init">-->
+		<!---->
+	<!--</bean>-->
+
+
+	<bean id="test2" class="com.tl.sentinel.T2" init-method="init">
+
+	</bean>
+
+
+	<!--<bean id="test3" class="com.tl.standalone.T3" init-method="init">-->
+
+	<!--</bean>-->
+
+</beans>
